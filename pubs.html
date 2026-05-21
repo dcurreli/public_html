@@ -1,0 +1,1151 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #222;
+      background: #fff;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.5rem;
+    }
+
+    h1 a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1 a:hover {
+      text-decoration: underline;
+    }
+
+    nav {
+      margin-bottom: 2rem;
+    }
+
+    nav a {
+      margin-right: 20px;
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .publication {
+      margin-bottom: 1.5rem;
+    }
+
+    .title {
+      font-weight: bold;
+    }
+
+    .authors {
+      color: #555;
+    }
+
+    .journal {
+      font-style: italic;
+      color: #842121;
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+<script>
+function filterAll(){
+  let search = document.getElementById("search").value.toLowerCase();
+  let year = document.getElementById("yearFilter").value;
+
+  let pubs = document.getElementsByClassName("publication");
+
+  for (let i = 0; i < pubs.length; i++){
+    let text = pubs[i].innerText.toLowerCase();
+    let pubYear = pubs[i].getAttribute("data-year");
+
+    let matchSearch = text.includes(search);
+    let matchYear = (year === "all" || pubYear === year);
+
+    pubs[i].style.display = (matchSearch && matchYear) ? "block" : "none";
+  }
+}
+
+function sortPubs(order){
+  let container = document.body;
+  let pubs = Array.from(document.getElementsByClassName("publication"));
+
+  pubs.sort((a,b)=>{
+    let ya = parseInt(a.getAttribute("data-year"));
+    let yb = parseInt(b.getAttribute("data-year"));
+    return order === "asc" ? ya - yb : yb - ya;
+  });
+
+  pubs.forEach(p=>container.appendChild(p));
+}
+
+function populateYears(){
+  let years = new Set();
+  let pubs = document.getElementsByClassName("publication");
+
+  for (let p of pubs){
+    years.add(p.getAttribute("data-year"));
+  }
+
+  let select = document.getElementById("yearFilter");
+  Array.from(years).sort((a,b)=>b-a).forEach(y=>{
+    let opt = document.createElement("option");
+    opt.value = y;
+    opt.text = y;
+    select.appendChild(opt);
+  });
+}
+
+window.onload = populateYears;
+</script>
+</head>
+
+
+
+
+
+<body>
+    
+  <h1>
+    <a href="https://npre.illinois.edu/people/profile/dcurreli" target="_blank">Publications</a>
+  </h1>
+  
+  <nav>
+    <a href="https://npre.illinois.edu/people/profile/dcurreli" target="_blank">Profile</a>
+    <a href="https://dcurreli.web.engr.illinois.edu/pubs/">Publications</a>
+    <a href="https://github.com/lcpp-org" target="_blank">GitHub</a>
+    <a href="https://orcid.org/0000-0001-6406-6699" target="_blank">ORCID</a>
+    <!-- <a href="https://dcurreli.web.engr.illinois.edu/talks/" target="_blank">Talks</a> -->
+  </nav>
+  
+  <!--<img-->
+  <!--  src="https://dcurreli.web.engr.illinois.edu/pubs/bardeen3.jpg"-->
+  <!--  alt="Website banner"-->
+  <!--  class="banner-image"-->
+  <!--  style="max-width: 100%; width: 760px;"-->
+  <!--/>-->
+
+<hr>
+
+<input type="text" id="search" onkeyup="filterAll()" placeholder="Search publications...">
+
+<select id="yearFilter" onchange="filterAll()">
+  <option value="all">All years</option>
+</select>
+
+<!--<button onclick="sortPubs('desc')">Newest</button>-->
+<!--<button onclick="sortPubs('asc')">Oldest</button>-->
+
+<hr>
+
+<div class="publication" data-year="2026">
+<div class="title">NanoPSD: a Software for Automatic Detection of Nano-Particle Shape Distribution in SEM and TEM Electron Micrographs</div>
+<div class="authors">Md Fazlul Huq, Rakia Dhaoui, Emily Weerakkody, Sulieman Alfuhaid, Harry Radousky, and Davide Curreli</div>
+<div class="journal">Computational Materials Science (2026)</div>
+<div>
+  <a href="#" target="_blank">DOI</a> / 
+  <a href="#" target="_blank">PDF</a> / 
+  <a href="#" target="_blank">BibTeX</a> / 
+  <a href="#" target="_blank">RIS</a> / 
+  <a href="https://github.com/lcpp-org/NanoPSD" target="_blank">GitHub</a>
+</div>
+</div>
+
+<div class="publication" data-year="2026">
+<div class="title">Machine Learning Surrogates for Ion Energy-Angle Distributions in Thermal and RF Plasma Sheaths</div>
+<div class="authors">Mohammad Mustafa and Davide Curreli</div>
+<div class="journal">Journal of Plasma Physics, 92(2):E52 (2026)</div>
+<div>
+  <a href="https://doi.org/10.1017/S0022377826101561" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1017/S0022377826101561" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1017/S0022377826101561" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1017/S0022377826101561" target="_blank">RIS</a>
+</div>
+</div>
+
+<div class="publication" data-year="2025">
+<div class="title">A Block-Structured Nonuniform Meshing Technique for Reducing the Degrees-of-Freedom in Hybrid Particle-in-Cell Plasma Simulations</div>
+<div class="authors">Md Fazlul Huq, Vignesh V. Srinivasaragavan, Onkar Sahni, and Davide Curreli</div>
+<div class="journal">Computer Physics Communications, Volume 313, 109612 (2025)</div>
+<div>
+  <a href="https://doi.org/10.1016/j.cpc.2025.109612" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1016/j.cpc.2025.109612" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1016/j.cpc.2025.109612" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1016/j.cpc.2025.109612" target="_blank">RIS</a>
+</div>
+</div>
+
+<div class="publication" data-year="2025">
+<div class="title">Insights into sustainable nitrogen fixation by gas-phase spectroscopic measurements and global modeling of reaction intermediates in humid nitrogen plasma</div>
+<div class="authors">A. Jayanarasimhan, R. Pierrard, S.M. Peyres, S. Yatom, D. Curreli, R.M. Sankaran</div>
+<div class="journal">ACS Sustainable Chemistry & Engineering, 13 (1) 140-150 (2025)</div>
+<div>
+  <a href="https://doi.org/10.1021/acssuschemeng.4c05771" target="_blank">DOI</a> / 
+  <a href="https://pubs.acs.org/doi/pdf/10.1021/acssuschemeng.4c05771?ref=article_openPDF" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1021/acssuschemeng.4c05771" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1021/acssuschemeng.4c05771" target="_blank">RIS</a> / 
+  <a href="https://doi.org/10.1021/acssuschemeng.4c05771" target="_blank">SI</a>
+</div>
+</div>
+
+<div class="publication" data-year="2025">
+<div class="title">Integrated modeling of RF-induced tungsten erosion at ICRH antenna structures in the WEST tokamak</div>
+<div class="authors">A. Kumar, W. Tierens, T. Younkin, C. Johnson, C. Klepper, A. Diaw, J. Lore, A. Grosjean, G. Urbanczyk, J. Hillairet, P. Tamain, L. Colas, C. Guillemaut, D. Curreli, S. Shiraiwa, N. Bertelli and the WEST Team</div>
+<div class="journal">Nuclear Fusion, 65, 076039 (2025)</div>
+<div>
+  <a href="https://doi.org/10.1088/1741-4326/ade455" target="_blank">DOI</a> / 
+  <a href="https://iopscience.iop.org/article/10.1088/1741-4326/ade455/pdf" target="_blank">PDF</a> / 
+  <a href="https://iopscience.iop.org/export?type=article&doi=10.1088/1741-4326/ade455&exportFormat=iopexport_bib&exportType=abs&navsubmit=Export+abstract" target="_blank">BibTeX</a> / 
+  <a href="https://iopscience.iop.org/export?type=article&doi=10.1088/1741-4326/ade455&exportFormat=iopexport_ris&exportType=abs&navsubmit=Export+abstract" target="_blank">RIS</a>
+</div>
+</div>
+
+<div class="publication" data-year="2024">
+<div class="title">DIII-D research to provide solutions for ITER and fusion energy</div>
+<div class="authors">C.T. Holcomb, for the DIII-D Team, et al. </div>
+<div class="journal">Nuclear Fusion 64, 112003 (2024)</div>
+<div>
+  <a href="https://doi.org/10.1088/1741-4326/ad2fe9" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/ad2fe9" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/ad2fe9" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/ad2fe9" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2024">
+<div class="title">Multi-physics modeling of tungsten collector probe samples during the WEST C4 He campaign</div>
+<div class="authors">A. Lasa, S. Blondel, D. Curreli, J. Drobny, W.A. Garcia, J. Gunn, A. Hayes, J.D. Lore, A. Renganathan, E. Tsitrone, E. Unterberg and B.D. Wirth</div>
+<div class="journal">Nuclear Fusion 64, 106012 (2024)</div>
+<div>
+  <a href="https://doi.org/10.1088/1741-4326/ad6c5b" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/ad6c5b" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/ad6c5b" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/ad6c5b" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2024">
+<div class="title">Exploring the effect of ELM and code-coupling frequencies on plasma and material modeling of dynamic recycling in divertors</div>
+<div class="authors">A. Lasa, J.-S. Park, J. Lore, S. Blondel, D.E. Bernholdt, J.M. Canik, M. Cianciosa, J. Coburn, D. Curreli, W. Elwasif, J. Guterl, J. Hoffman, J.M. Park, G. Sinclair and B.D. Wirth</div>
+<div class="journal">Nuclear Fusion 64, 076006 (2024)</div>
+<div>
+  <a href="https://doi.org/10.1088/1741-4326/ad4894" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/ad4894" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/ad4894" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/ad4894" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2024">
+<div class="title">Investigation of Materials for Radio Frequency Antenna Plasma Facing Components</div>
+<div class="authors">J. B. O. Caughman, K. Butler, D. Curreli, D. Donovan, D. C. Easley, A. Gonzalez-Galvan, C. A. Johnson, L. Meredith, E. A. Unterberg</div>
+<div class="journal">IEEE Transactions on Plasma Science PP(99):1-6 (2024)</div>
+<div>
+  <a href="https://doi.org/10.1109/TPS.2024.3374252" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1109/TPS.2024.3374252" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1109/TPS.2024.3374252" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1109/TPS.2024.3374252" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2023">
+<div class="title">Enabling Attractive-Repulsive Potentials in Binary-Collision-Approximation Monte-Carlo Codes for Ion-Surface Interactions</div>
+<div class="authors">Jon Drobny and Davide Curreli</div>
+<div class="journal">Materials Research Express 10, 126513 (2023)</div>
+<div>
+  <a href="https://doi.org/10.1088/2053-1591/ad1262" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1088/2053-1591/ad1262" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1088/2053-1591/ad1262" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1088/2053-1591/ad1262" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2023">
+<div class="title">Resonance in radiofrequency sheath admittance and enhanced impurity emission near the ion cyclotron frequency</div>
+<div class="authors">M. Rezazadeh, J. Myra, D. Curreli</div>
+<div class="journal">Nuclear Fusion, 63, 126024 (2023)</div>
+<div>
+  <a href="https://doi.org/10.1088/1741-4326/acee0e" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/acee0e" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/acee0e" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/acee0e" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2023">
+<div class="title">Verification and validation of the open-source plasma fluid code: Zapdos</div>
+<div class="authors">C. DeChant, C. Icenhour, S. Keniley, G. Gall, A. Lindsay, D. Curreli, S. Shannon</div>
+<div class="journal">Computer Physics Communications, Volume 291, 108837 (2023)</div>
+<div>
+  <a href="https://doi.org/10.1016/j.cpc.2023.108837" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1016/j.cpc.2023.108837" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1016/j.cpc.2023.108837" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1016/j.cpc.2023.108837" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2023">
+<div class="title">Stochastic Optimization of a Uranium Oxide Reaction Mechanism Using Plasma Flow Reactor Measurements </div>
+<div class="authors">M. Finko, B. Koroglu, K. E. Rodriguez, T. P. Rose, J. C. Crowhurst, D. Curreli, H. B. Radousky, K.B. Knight</div>
+<div class="journal">Nature Scientific Reports, 13, 9293 (2023)</div>
+<div>
+  <a href="https://doi.org/10.1038/s41598-023-35355-6" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1038/s41598-023-35355-6" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1038/s41598-023-35355-6" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1038/s41598-023-35355-6" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2023">
+<div class="title">Verification methods for drift–diffusion reaction models for plasma simulations</div>
+<div class="authors">C. DeChant, C. Icenhour, S. Keniley, A. Lindsay, G. Gall, K. Clein Hizon, D. Curreli, S. Shannon</div>
+<div class="journal">Plasma Sources Science and Technology, Volume 32, Number 4 (2023)</div>
+<div>
+  <a href="https://doi.org/10.1088/1361-6595/acce65" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1088/1361-6595/acce65" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1088/1361-6595/acce65" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1088/1361-6595/acce65" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2023">
+<div class="title">hPIC2: a hardware-accelerated, hybrid particle-in-cell code for dynamic plasma-material interactions</div>
+<div class="authors">L. Meredith, M. Rezazadeh, H. Fazlul, V. Srinivasaragavan, O. Sanhni, D. Curreli</div>
+<div class="journal">Computer Physics Communications, Volume 283, 108569 (2023)</div>
+<div>
+  <a href="https://doi.org/10.1016/j.cpc.2022.108569" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1016/j.cpc.2022.108569" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1016/j.cpc.2022.108569" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1016/j.cpc.2022.108569" target="_blank">RIS</a> / 
+  <a href="https://hpic2.readthedocs.io" target="_blank">ReadTheDocs</a></div>
+</div>
+
+<div class="publication" data-year="2023">
+<div class="title">One-Dimensional Plasma Model of Electrical Discharge Machining in Deionized Water for Prediction of Plasma Characteristics Along the Interelectrode Gap</div>
+<div class="authors">A. Tanveer, S. G. Kapoor, S. Mujumdar, D. Curreli</div>
+<div class="journal">Journal of Manufacturing Science and Engineering, 145 (1) 011012 (2023)</div>
+<div>
+  <a href="https://doi.org/10.1115/1.4056265" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1115/1.4056265" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1115/1.4056265" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1115/1.4056265" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2022">
+<div class="title">Characterizing W sources in the all-W wall, all-RF WEST tokamak environment</div>
+<div class="authors">C C. Klepper, E. A. Unterberg, Y. Marandet, D. Curreli, A. Grosjean, J. H. Harris, C. A. Johnson, A. Gallo, M. Goniche, Ch. Guillemaut, J. P. Gunn, M. Raghunathan, E. Tsitrone, G. Ciraolo, L. Colas, D. Donovan, A. Ekedahl, D. Easley, G. Urbanczyk, and the WEST Team </div>
+<div class="journal">Plasma Physics and Controlled Fusion, 64, 104008 (2022)</div>
+<div>
+  <a href="https://doi.org/10.1088/1361-6587/ac8acc" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1088/1361-6587/ac8acc" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1088/1361-6587/ac8acc" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1088/1361-6587/ac8acc" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2022">
+<div class="title">Investigating Laser Ablated Plume Dynamics of Carbon and Aluminum Targets</div>
+<div class="authors">M. Finko, J. C. Crowhurst, W. J. Keller, A. C. Rousso, S. S. Ly, D. G. Weisz, D. Curreli, H. B. Radousky, and K. B. Knight</div>
+<div class="journal">Physics of Plasmas 29, 083506 (2022) (Selected as Editor's Pick)</div>
+<div>
+  <a href="https://doi.org/10.1063/5.0099167" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1063/5.0099167" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1063/5.0099167" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1063/5.0099167" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2022">
+<div class="title">Multiphase Modeling of the Plasma-Water Interface: Application to Hydrogen Peroxide Generation with Experimental Validation</div>
+<div class="authors">S. Keniley, Necip B. Uner, Elizabeth Perez, R. Mohan Sankaran, Davide Curreli</div>
+<div class="journal">Plasma Sources Science and Technology, 31 (7) 075001 (2022)</div>
+<div>
+  <a href="https://doi.org/10.1088/1361-6595/ac7891" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1088/1361-6595/ac7891" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1088/1361-6595/ac7891" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1088/1361-6595/ac7891" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2022">
+<div class="title">Data-driven surrogate modeling of hPIC ion energy-angle distributions for high-dimensional sensitivity analysis of plasma parameters' uncertainty</div>
+<div class="authors">P. Seleson, M. Mustafa, D. Curreli, C. D. Hauck, M. Stoyanov, D. Bernholdt</div>
+<div class="journal">Computer Physics Communications, 279, 108436 (2022)</div>
+<div>
+  <a href="https://doi.org/10.1016/j.cpc.2022.108436" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1016/j.cpc.2022.108436" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1016/j.cpc.2022.108436" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1016/j.cpc.2022.108436" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2022">
+<div class="title">Simulation of Liquid Lithium Divertor Geometry using SOLPS-ITER</div>
+<div class="authors">J. D. Lore, M. S. Islam, C. E. Kessel, D. Curreli, R. Maingi, M. Rezazadeh, S. Smolentsev</div>
+<div class="journal">IEEE Transactions on Plasma Science, Volume: 50, Issue 11, 4199-4205 (2022)</div>
+<div>
+  <a href="https://doi.org/10.1109/TPS.2022.3166402" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1109/TPS.2022.3166402" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1109/TPS.2022.3166402" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1109/TPS.2022.3166402" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2022">
+<div class="title">The influence of cooling rate on condensation of iron, aluminum, and uranium oxide nanoparticles</div>
+<div class="authors">B. Koroglu, M. Finko, C. Saggese, S. Wagnon, S. Foster, D. McGuffin, T. P. Rose, J. C. Crowhurst, D. G. Weisz, H. B. Radousky, D. Curreli, K. B. Knight</div>
+<div class="journal">Journal of Aerosol Science, Volume 162, 105959 (2022)</div>
+<div>
+  <a href="https://doi.org/10.1016/j.jaerosci.2022.105959" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1016/j.jaerosci.2022.105959" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1016/j.jaerosci.2022.105959" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1016/j.jaerosci.2022.105959" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2022">
+<div class="title">DIII-D research advancing the physics basis for optimizing the tokamak approach to fusion energy</div>
+<div class="authors">M. E. Fenstermacher, et al.</div>
+<div class="journal">Nuclear Fusion 62, (4) 042024 (2022)</div>
+<div>
+  <a href="https://doi.org/10.1088/1741-4326/ac2ff2" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/ac2ff2" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/ac2ff2" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/ac2ff2" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2022">
+<div class="title">Quantification of the Effect of Uncertainty on Impurity Migration in PISCES-A Simulated with GITR</div>
+<div class="authors">T. Younkin, K. Sargsyan, T. Casey, H. Najm, J. Canik, D. Green, R. Doerner, D. Nishijima, M. Baldwin, J. Drobny, D. Curreli, B. Wirth</div>
+<div class="journal">Nuclear Fusion, 62, 056007 (2022)</div>
+<div>
+  <a href="https://doi.org/10.1088/1741-4326/ac2bfa" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/ac2bfa" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/ac2bfa" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/ac2bfa" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2021">
+<div class="title">Optical spectroscopy and modeling of uranium gas-phase oxidation: Progress and perspectives</div>
+<div class="authors">E.J. Kautz, E.N. Weerakkody, M.S. Finko, D. Curreli, B. Koroglu, T.P. Rose, D.G. Weisz, J.C. Crowhurst, H.B. Radousky, M. DeMagistris, N. Sinha, D.A. Levin, E.L. Dreizin, M.C. Phillips, N.G. Glumac, S.S. Harilal</div>
+<div class="journal">Spectrochimica Acta Part B: Atomic Spectroscopy, 185, 106283 (2021)</div>
+<div>
+  <a href="https://doi.org/10.1016/j.sab.2021.106283" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1016/j.sab.2021.106283" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1016/j.sab.2021.106283" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1016/j.sab.2021.106283" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2021">
+<div class="title">RustBCA: A High-Performance Binary-Collision-Approximation Code for Ion-Material Interactions</div>
+<div class="authors">Jon Drobny and Davide Curreli</div>
+<div class="journal">Journal of Open Source Software, 6 (64), 3298 (2021)</div>
+<div>
+  <a href="https://doi.org/10.21105/joss.03298" target="_blank">DOI</a> / 
+  <a href="https://www.theoj.org/joss-papers/joss.03298/10.21105.joss.03298.pdf" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.21105/joss.03298" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.21105/joss.03298" target="_blank">RIS</a> / 
+  <a href="https://github.com/lcpp-org/RustBCA" target="_blank">GitHub</a> / 
+  <a href="https://github.com/lcpp-org/RustBCA/wiki" target="_blank">Wiki</a></div>
+</div>
+
+<div class="publication" data-year="2021">
+<div class="title">Integrated model predictions on the impact of substrate damage on gas dynamics during ITER burning-plasma operations</div>
+<div class="authors">A. Lasa, S. Blondel, D. Bernholdt, J. Canik, M. Cianciosa, W. Elwasif, D. Green, P. Roth, T. Younkin, D. Curreli, J. Drobny, B. Wirth</div>
+<div class="journal">Nuclear Fusion, Volume 61, Number 11 (2021)</div>
+<div>
+  <a href="https://doi.org/10.1088/1741-4326/ac2875" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/ac2875" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/ac2875" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/ac2875" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2021">
+<div class="title">Energy-Angle Distribution of the Ions in the RF sheath of ICRH antennas</div>
+<div class="authors">M. Elias, D. Curreli, J. Myra</div>
+<div class="journal">Physics of Plasmas, 28 (5) 052106 (2021)</div>
+<div>
+  <a href="https://doi.org/10.1063/5.0045962" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1063/5.0045962" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1063/5.0045962" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1063/5.0045962" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2021">
+<div class="title">Damage to Relativistic Interstellar Spacecraft by ISM Impact Gas Accumulation</div>
+<div class="authors">J. Drobny, S. Cohen, D. Curreli, P. Lubin, M. Pelizzo, and M. Umanski</div>
+<div class="journal">The Astrophysical Journal, 908 (2), 248 (2021)</div>
+<div>
+  <a href="https://doi.org/10.3847/1538-4357/abd4ec" target="_blank">DOI</a> / 
+  <a href="https://iopscience.iop.org/article/10.3847/1538-4357/abd4ec/pdf" target="_blank">PDF</a> / 
+  <a href="https://iopscience.iop.org/export?type=article&doi=10.3847/1538-4357/abd4ec&exportFormat=iopexport_bib&exportType=abs&navsubmit=Export+abstract" target="_blank">BibTeX</a> / 
+  <a href="https://iopscience.iop.org/export?type=article&doi=10.3847/1538-4357/abd4ec&exportFormat=iopexport_ris&exportType=abs&navsubmit=Export+abstract" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2021">
+<div class="title">Dependence of the damage in optical metal/dielectric coatings on the energy of ions in irradiation experiments for space qualification</div>
+<div class="authors">Maria G. Pelizzo, Alain J. Corso, Giovanni Santi, René Hübner, Denis Garoli, Dominic Doyle, Philip Lubin, Alexander N. Cohen, Jacob Erlikhman, Giulio Favaro, Marco Bazzan, Jon Drobny, Davide Curreli, and Maxim Umansky</div>
+<div class="journal">Nature Scientific Reports, 11, 3429 (2021)</div>
+<div>
+  <a href="https://doi.org/10.1038/s41598-021-82860-7" target="_blank">DOI</a> / 
+  <a href="https://www.nature.com/articles/s41598-021-82860-7.pdf" target="_blank">PDF</a> / 
+  <a href="https://www.nature.com/articles/s41598-021-82860-7#citeas" target="_blank">BibTeX</a> / 
+  <a href="https://www.nature.com/articles/s41598-021-82860-7#citeas" target="_blank">RIS</a> / 
+  <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41598-021-82860-7/MediaObjects/41598_2021_82860_MOESM1_ESM.pdf" target="_blank">SI</a></div>
+</div>
+
+<div class="publication" data-year="2020">
+<div class="title">Three-dimensional cross-field flows at the plasma-material interface in an oblique magnetic field</div>
+<div class="authors">D. S. Thompson, R. Khaziev, M. F. Henriquez, S. Keniley, E. E. Scime, D. Curreli</div>
+<div class="journal">Physics of Plasmas, 27 (7) 073511 (2020). [Selected as Featured Article in Physics of Plasmas]</div>
+<div>
+  <a href="https://doi.org/10.1063/5.0012442" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1063/5.0012442" target="_blank">PDF</a> / 
+  <a href="https://pubs.aip.org/Citation/Download?resourceId=263369&resourceType=3&citationFormat=2" target="_blank">BibTeX</a> / 
+  <a href="https://pubs.aip.org/Citation/Download?resourceId=263369&resourceType=3&citationFormat=0" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2020">
+<div class="title">Effect of net direct current on the properties of radio frequency sheaths: simulation and cross-code comparison</div>
+<div class="authors">J. Myra, M. Elias, D. Curreli, T. Jenkins</div>
+<div class="journal">Nuclear Fusion, 61 (1) 016030 (2020)</div>
+<div>
+  <a href="https://doi.org/10.1088/1741-4326/abc4c4" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/abc4c4" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/abc4c4" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/abc4c4" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2020">
+<div class="title">Coherent Atomic-Scale Ripples on Metallic Glasses Patterned by Low-Energy Ion Irradiation for Large-Area Surface Structuring</div>
+<div class="authors">P. Luo, C. Jaramillo, A. M. Wallum, Z. Liu, R. Zhao, L. Shen, Y. Zhai, J. C. Spear, D. Curreli, J. W. Lyding, M. Gruebele, W. Wang, J. P. Allain, YZ</div>
+<div class="journal">ACS Appl. Nano Mater. (2020)</div>
+<div>
+  <a href="https://doi.org/10.1021/acsanm.0c02548" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1021/acsanm.0c02548" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1021/acsanm.0c02548" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1021/acsanm.0c02548" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2020">
+<div class="title">Experimental Investigation of Uranium Volatility During Vapor Condensation</div>
+<div class="authors">B. Koroglu, Z. Dai, M. Finko, M. Armstrong, J. Crowhurst, D. Curreli, D. Weisz, H. Radousky, K. Knight, T. Rose</div>
+<div class="journal">Analytical Chemistry, 92 (9) 6437-6445 (2020)</div>
+<div>
+  <a href="https://pubs.acs.org/doi/abs/10.1021/acs.analchem.9b05562" target="_blank">DOI</a> / 
+  <a href="https://pubs.acs.org/doi/abs/10.1021/acs.analchem.9b05562" target="_blank">PDF</a> / 
+  <a href="https://pubs.acs.org/doi/abs/10.1021/acs.analchem.9b05562" target="_blank">BibTeX</a> / 
+  <a href="https://pubs.acs.org/doi/abs/10.1021/acs.analchem.9b05562" target="_blank">RIS</a> / 
+  <a href="https://www.llnl.gov/article/46356/experiment-improves-predictions-uranium-dispersion" target="_blank">LLNL News</a></div>
+</div>
+
+<div class="publication" data-year="2020">
+<div class="title">Multi-physics modeling of the long-term evolution of helium plasma exposed surfaces</div>
+<div class="authors">A. Lasa, J. M. Canik, S. Blondel, T. R. Younkin, D. Curreli, J. Drobny, P. Roth, M. Cianciosa, W. Elwasif, D. L. Green and B. D. Wirth</div>
+<div class="journal">Physica Scripta, T171, 014041 (2020)</div>
+<div>
+  <a href="https://doi.org/10.1088/1402-4896/ab4c29" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1088/1402-4896/ab4c29" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1088/1402-4896/ab4c29" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1088/1402-4896/ab4c29" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2020">
+<div class="title">Density Estimation Techniques for Multiscale Coupling of Kinetic Models of the Plasma Material Interface</div>
+<div class="authors">Shane Keniley and Davide Curreli</div>
+<div class="journal">Journal of Computational Physics, Vol. 400, 108965 (2020)</div>
+<div>
+  <a href="https://doi.org/10.1016/j.jcp.2019.108965" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1016/j.jcp.2019.108965" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1016/j.jcp.2019.108965" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1016/j.jcp.2019.108965" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2020">
+<div class="title">Simulation and Experimental Validation of the Uniformity of Thermally Evaporated Amorphous Selenium Films for Large Area Imaging and Radiation Detection Applications</div>
+<div class="authors">M. Farahmandzadeh, S. Marcinko, C. Jaramillo, M. K. Cheng, D. Curreli, S. Abbaszadeh</div>
+<div class="journal">IEEE Transactions on Electron Devices, devices 68 (2) 626-631 (2020)</div>
+<div>
+  <a href="https://doi.org/10.1109/TED.2020.3045963" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1109/TED.2020.3045963" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1109/TED.2020.3045963" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1109/TED.2020.3045963" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2020">
+<div class="title">An explicit scheme to enforce charge conservation in transient Particle-in-Cell simulations with Maxwell-Boltzmann electrons</div>
+<div class="authors">Moutaz Elias and Davide Curreli</div>
+<div class="journal">Journal of Computational Physics, Vol. 409, 109320 (2020)</div>
+<div>
+  <a href="https://doi.org/10.1016/j.jcp.2020.109320" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1016/j.jcp.2020.109320" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1016/j.jcp.2020.109320" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1016/j.jcp.2020.109320" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2020">
+<div class="title">Survivability of Metallic Shields for Relativistic Spacecraft</div>
+<div class="authors">J. Drobny, S. Cohen, D. Curreli, P. Lubin, M. G. Pelizzo, M. Umansky</div>
+<div class="journal">Journal of the British Interplanetary Society, 73 (12) 446-456 (2020)</div>
+<div>
+  <a href="https://jbis.org.uk/paper/2020.73.446" target="_blank">DOI</a> / 
+  <a href="https://jbis.org.uk/paper/2020.73.446" target="_blank">PDF</a> / 
+  <a href="https://jbis.org.uk/paper/2020.73.446" target="_blank">BibTeX</a> / 
+  <a href="https://jbis.org.uk/paper/2020.73.446" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2020">
+<div class="title">A Domestic Program for Liquid Metal PFC Research in Fusion</div>
+<div class="authors">D. Andruczyk, R. Maingi, C. Kessel, D. Curreli, E. Kolemen, J. Canik, B. Pint, D. Youchison, and S. Smolentsev</div>
+<div class="journal">Journal of Fusion Energy, 39, 441-447 (2020)</div>
+<div>
+  <a href="https://doi.org/10.1007/s10894-020-00259-0" target="_blank">DOI</a> / 
+  <a href="https://doi.org/10.1007/s10894-020-00259-0" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1007/s10894-020-00259-0" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1007/s10894-020-00259-0" target="_blank">RIS</a></div>
+</div>
+
+<!--dc2019a_Elias_PhysPlasmas-->
+<div class="publication" data-year="2019">
+<div class="title"> Numerical Model of the Radio-Frequency Magnetic Presheath Including Wall Impurities</div>
+<div class="authors">Moutaz Elias, Davide Curreli, Tom G. Jenkins, James R. Myra, and John Wright</div>
+<div class="journal">Physics of Plasmas 26, 092508 (2019)</div>
+<div>
+  <a href="https://doi.org/10.1063/1.5109256" target="_blank">DOI</a>  /  
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2019a_Elias_PhysPlasmas.pdf" target="_blank">PDF</a> / 
+  <a href="https://pubs.aip.org/Citation/Download?resourceId=263603&resourceType=3&citationFormat=2" target="_blank">BibTeX</a> / 
+  <a href="https://pubs.aip.org/Citation/Download?resourceId=263603&resourceType=3&citationFormat=0" target="_blank">RIS</a>
+</div>
+</div>
+  
+<!--dc2019b_Rizkallah_PhysPlasmas-->
+<div class="publication" data-year="2019">
+<div class="title">Mapping of the HIDRA Stellarator Magnetic Flux Surfaces</div>
+<div class="authors">Rabel Rizkallah, Steven Marcinko, Davide Curreli, Matthew S. Parsons, Nathan Bartlett, Raanan Gluck, Andrew Shone, and Daniel Andruczyk</div>
+<div class="journal">Physics of Plasmas 26, 092503 (2019)</div>
+<div>
+  <a href="https://doi.org/10.1063/1.5100744" target="_blank">DOI</a>  /  
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2019b_Rizkallah_PhysPlasmas.pdf" target="_blank">PDF</a> / 
+  <a href="https://pubs.aip.org/Citation/Download?resourceId=263654&resourceType=3&citationFormat=2" target="_blank">BibTeX</a> / 
+  <a href="https://pubs.aip.org/Citation/Download?resourceId=263654&resourceType=3&citationFormat=0" target="_blank">RIS</a>
+</div>
+</div>
+
+<!--CRANE-->
+<div class="publication" data-year="2019">
+<div class="title">CRANE: A MOOSE-based Open Source Tool for Plasma Chemistry Applications</div>
+<div class="authors">Shane Keniley and Davide Curreli</div>
+<div class="journal">arXiv 1905 10004 (2019)</div>
+<div>
+  <a href="https://doi.org/10.48550/arXiv.1905.10004" target="_blank">DOI</a> / 
+  <a href="https://arxiv.org/pdf/1905.10004" target="_blank">PDF</a> / 
+  <a href="https://arxiv.org/abs/1905.10004" target="_blank">BibTeX</a> / 
+  <a href="https://arxiv.org/abs/1905.10004" target="_blank">RIS</a> / 
+  <a href="https://github.com/lcpp-org/crane" target="_blank">GitHub</a> / 
+  <a href="https://crane-plasma-chemistry.readthedocs.io/" target="_blank">ReadTheDocs</a> / 
+  <a href="https://github.com/lcpp-org/GEC-2018-moose-tutorial/" target="_blank">Tutorials</a> / 
+  <a href="https://youtu.be/3rhJxzrE5wE" target="_blank">YouTube</a>
+</div>
+</div>
+<!--@misc{keniley2019cranemoosebasedopensource,-->
+<!--      title={CRANE: A MOOSE-based Open Source Tool for Plasma Chemistry Applications}, -->
+<!--      author={Shane Keniley and Davide Curreli},-->
+<!--      year={2019},-->
+<!--      eprint={1905.10004},-->
+<!--      archivePrefix={arXiv},-->
+<!--      primaryClass={physics.plasm-ph},-->
+<!--      url={https://arxiv.org/abs/1905.10004}, -->
+<!--}-->
+
+<!--dc2018h_Weisz_JPhysChem-->
+<div class="publication" data-year="2018">
+<div class="title">Effects of Plume Hydrodynamics and Oxidation on the Composition of a Condensing Laser-Induced Plasma</div>
+<div class="authors">David G. Weisz, Jonathan C. Crowhurst, Mikhail S. Finko, Timothy P. Rose, Batikan Koroglu, Reto Trappitsch, Harry B. Radousky, Wigbert J. Siekhaus, Michael R. Armstrong, Brett H. Isselhardt, Magdi Azer, and Davide Curreli</div>
+<div class="journal">Journal of Physical Chemistry A, 122, 1584-1591 (2018)</div>
+<div>
+  <a href="http://dx.doi.org/10.1021/acs.jpca.7b11994" target="_blank">DOI</a>  /  
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2018h_Weisz_JPhysChem.pdf" target="_blank">PDF</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2018h_Weisz_JPhysChem.bib" target="_blank">BibTeX</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2018h_Weisz_JPhysChem.ris" target="_blank">RIS</a>
+</div>
+</div>
+
+<!--dc2018g_Rizkallah_ITPS-->
+<div class="publication" data-year="2018">
+<div class="title">Latest Results From the Hybrid Illinois Device for Research and Applications (HIDRA)</div>
+<div class="authors">R. Rizkallah, D. Andruczyk, A. Shone, D. Johnson, Z. Jeckell, S. Marcinko, Z. Song, D. Curreli, F. Bedoya, A. Kapat, J. P. Allain, M. Christenson, M. Szott, S. Stemmley, H. Sandefur, D. N. Ruzic, R. Maingi, J. Hu, G. Zuo, and J. Schmitt</div>
+<div class="journal">IEEE Transactions of Plasma Science, Vol. 46, N. 7 (2018)</div>
+<div>
+  <a href="https://doi.org/10.1109/TPS.2018.2838571" target="_blank">DOI</a>  /  
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2018g_Rizkallah_ITPS.pdf" target="_blank">PDF</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2018g_Rizkallah_ITPS.bib" target="_blank">BibTeX</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2018g_Rizkallah_ITPS.ris" target="_blank">RIS</a>
+</div>
+</div>
+  
+<div class="publication" data-year="2018">
+<div class="title">Effect of dielectric conductivity on micro-electrical discharge machining plasma characteristics using optical emission spectroscopy</div>
+<div class="authors">S. S. Mujumdar, D. Curreli, and S. G. Kapoor</div>
+<div class="journal">Journal of Micro and Nano-Manufacturing, Vol. 6, Is. 3031001 (2018)</div>
+<div>
+  <a href="https://doi.org/10.1115/1.4039508" target="_blank">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2018f_Mujumdar_JMNM.pdf" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1115/1.4039508" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1115/1.4039508" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2018">
+<div class="title">Numerical Characterization of the Edge Transport Conditions and Limiter Fluxes in the HIDRA Stellarator</div>
+<div class="authors">Steven Marcinko and Davide Curreli</div>
+<div class="journal">Physics of Plasmas, 25, 2, 022507 (2018)</div>
+<div>
+  <a href="https://doi.org/10.1063/1.5018215" target="_blank">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2018e_Marcinko_PhysPlasmas.pdf" target="_blank">PDF</a> / 
+  <a href="https://pubs.aip.org/Citation/Download?resourceId=729056&resourceType=3&citationFormat=2" target="_blank">BibTeX</a> / 
+  <a href="https://pubs.aip.org/Citation/Download?resourceId=729056&resourceType=3&citationFormat=0" target="_blank">RIS</a>
+</div>
+</div>
+
+<div class="publication" data-year="2018">
+<div class="title">hPIC: A Scalable Electrostatic Particle-in-Cell for Plasma-Material Interactions</div>
+<div class="authors">Rinat Khaziev and Davide Curreli</div>
+<div class="journal">Computer Physics Communications, Vol. 229, 87-98 (2018)</div>
+<div>
+  <a href="https://doi.org/10.1016/j.cpc.2018.03.028" target="_blank">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2018d_Khaziev_CPC.pdf" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1016/j.cpc.2018.03.028" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1016/j.cpc.2018.03.028" target="_blank">RIS</a>
+</div>
+</div>
+
+<div class="publication" data-year="2018">
+<div class="title">Stellarator Research Opportunities: A Report of the National Stellarator Coordinating Committee</div>
+<div class="authors">D. A. Gates, D. Anderson, S. Anderson, M. Zarnstorff, D. A. Spong, H. Weitzner, G. H. Neilson, D. Ruzic, D. Andruczyk, J. H. Harris, H. Mynick, C. C. Hegna, O. Schmitz, J. N. Talmadge, D. Curreli, D. Maurer, A. H. Boozer, S. Knowlton, J. P. Allain, D. Ennis, G. Wurden, A. Reiman, J. D. Lore, M. Landreman, J. P. Freidberg, S. R. Hudson, M. Porkolab, D. Demers, J. Terry, E. Edlund, S. A. Lazerson, N. Pablant, R. Fonck, F. Volpe, J. Canik, R. Granetz, A. Ware, J. D. Hanson, S. Kumar, C. Deng, K. Likin, A. Cerfon, A. Ram, A. Hassam, S. Prager, C. Paz-Soldan, M. J. Pueschel, I. Joseph, A. H. Glasser</div>
+<div class="journal">Journal of Fusion Energy, Vol. 37, Is. 1, 1-44 (2018)</div>
+<div>
+  <a href="https://doi.org/10.1007/s10894-018-0152-7" target="_blank">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2018c_Gates_JFE.pdf" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1007/s10894-018-0152-7" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1007/s10894-018-0152-7" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2018">
+<div class="title">Simulation of uranium plasma plume dynamics in atmospheric oxygen produced via femtosecond laser ablation</div>
+<div class="authors">Mikhail Finko and Davide Curreli</div>
+<div class="journal">Physics of Plasmas 25, 083112 (2018)</div>
+<div>
+  <a href="https://doi.org/10.1063/1.5034470" target="_blank">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2018b_Finko_PhysPlasmas.pdf" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1063/1.5034470" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1063/1.5034470" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2018">
+<div class="title">On magnetic reconnection as promising driver for future plasma propulsion systems</div>
+<div class="authors">E. Cazzola, D. Curreli, G. Lapenta</div>
+<div class="journal">Physics of Plasmas 25, 073512 (2018) (Selected as Editor's Pick)</div>
+<div>
+  <a href="https://doi.org/10.1063/1.5036820" target="_blank">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2018a_Cazzola_PhysPlasmas.pdf" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1063/1.5036820" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1063/1.5036820" target="_blank">RIS</a></div>
+</div>
+
+<!--dc2017a_Drobny_JNM-->
+<div class="publication" data-year="2017">
+<div class="title"> F-TRIDYN: A Binary Collision Approximation Code for Simulating Ion Interactions with Rough Surfaces</div>
+<div class="authors">Jon Drobny, Alyssa Hayes, Davide Curreli, and David N. Ruzic</div>
+<div class="journal">Journal of Nuclear Materials, Vol. 494, 278-283 (2017)</div>
+<div>
+  <a href="https://doi.org/10.1016/j.jnucmat.2017.07.037" target="_blank">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2017a_Drobny_JNM.pdf" target="_blank">PDF</a> / 
+  <a href="https://www.sciencedirect.com/science/article/pii/S002231151730301X?via%3Dihub#:~:text=citation%20to%20RIS-,Export,-citation%20to%20BibTeX" target="_blank">BibTeX</a> / 
+  <a href="https://www.sciencedirect.com/science/article/pii/S002231151730301X?via%3Dihub#:~:text=Export%20citation%20to-,RIS,-Export%20citation%20to" target="_blank">RIS</a>
+</div>
+</div>
+
+<div class="publication" data-year="2017">
+<div class="title">Formation of 238U-16O and 238U-18O observed by time-resolved emission spectroscopy subsequent to laser ablation</div>
+<div class="authors">D. G. Weisz, J. C. Crowhurst, W. J. Siekhaus, T. P. Rose, B. Koroglu, H. B. Radousky, J. M. Zaug, M. R. Armstrong, B. H. Isselhardt, M. R. Savina, M. Azer, M. S. Finko, D. Curreli</div>
+<div class="journal">Applied Physics Letters, Vol. 111, Is. 3, 034101 (2017)</div>
+<div>
+  <a href="https://doi.org/10.1063/1.4991824" target="_blank">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2017f_Weisz_APL.pdf" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1063/1.4991824" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1063/1.4991824" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2017">
+<div class="title">High deposition rate nanocrystalline and amorphous silicon thin film production via surface wave plasma source</div>
+<div class="authors">J. Peck, P. Zonooz, D. Curreli, G. Panici, B. Jurczyk, D. N. Ruzic</div>
+<div class="journal">Surface and Coatings Technology, Vol. 325, 370-376 (2017)</div>
+<div>
+  <a href="https://doi.org/10.1016/j.surfcoat.2017.05.074" target="_blank">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2017e_Peck_SCT.pdf" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1016/j.surfcoat.2017.05.074" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1016/j.surfcoat.2017.05.074" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2017">
+<div class="title">Dynamic Coupling of Boltzmann Plasma Model to Surface Erosion Model for Kinetic Treatment of Plasma-Material Interactions</div>
+<div class="authors">Shane Keniley and Davide Curreli, </div>
+<div class="journal">Fusion Science and Technology, Vol. 71, N. 1, 93-102 (2017)</div>
+<div>
+  <a href="https://doi.org/10.13182/FST16-117" target="_blank">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2017d_Keniley_FST.pdf" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.13182/FST16-117" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.13182/FST16-117" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2017">
+<div class="title">Recent Advances in Stellarator Optimization</div>
+<div class="authors">D. A. Gates, A. H. Boozer, T. Brown, J. Breslau, D. Curreli, M. Landreman, S. A. Lazerson, J. Lore, H. Mynick, G. H. Neilson, N. Pomphrey, P. Xanthopoulos</div>
+<div class="journal">Nuclear Fusion, Vol. 57, N. 12, 126064 (2017)</div>
+<div>
+  <a href="https://doi.org/10.1088/1741-4326/aa8ba0" target="_blank">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2017c_Gates_NuclFusion.pdf" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/aa8ba0" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1088/1741-4326/aa8ba0" target="_blank">RIS</a></div>
+</div>
+
+<!-- dc2017b_Finko_JPhysD -->
+<div class="publication" data-year="2017">
+<div class="title">A Model of Early Formation of Uranium Molecular Oxides in Laser-Ablated Plasmas</div>
+<div class="authors">Mikhail S Finko, Davide Curreli, David G Weisz, Jonathan C Crowhurst, Timothy P Rose, Batikan Koroglu, Harry B Radousky, and Michael R Armstrong</div>
+<div class="journal">Journal of Physics D: Applied Physics, Vol. 50, N. 48, 485201 (2017)</div>
+<div>
+  <a href="https://doi.org/10.1088/1361-6463/aa92f5" target="_blank">DOI</a>  / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2017b_Finko_JPhysD.pdf" target="_blank">PDF</a> / 
+  <a href="https://iopscience.iop.org/export?type=article&doi=10.1088/1361-6463/aa92f5&exportFormat=iopexport_bib&exportType=abs&navsubmit=Export+abstract" target="_blank">BibTeX</a> / 
+  <a href="https://iopscience.iop.org/export?type=article&doi=10.1088/1361-6463/aa92f5&exportFormat=iopexport_ris&exportType=abs&navsubmit=Export+abstract" target="_blank">RIS</a>
+</div>
+</div>
+
+<div class="publication" data-year="2016">
+<div class="title">Model-based prediction of plasma resistance, and discharge voltage and current waveforms in micro-electro discharge machining</div>
+<div class="authors">S. S. Mujumdar, D. Curreli, S. Kapoor, D. Ruzic</div>
+<div class="journal">Journal of Micro and Nano-Manufacturing, Vol. 4, Is. 1, 011003 (2016)</div>
+<div>
+  <a href="https://doi.org/10.1115/1.4031773" target="_blank">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2016b_Mujumdar_JMNM.pdf" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1115/1.4031773" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1115/1.4031773" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2016">
+<div class="title">On the ions acceleration via collisionless magnetic reconnection in laboratory plasmas</div>
+<div class="authors">E. Cazzola, D. Curreli, S. Markidis, G. Lapenta</div>
+<div class="journal">Physics of Plasmas 23, 112108 (2016)</div>
+<div>
+  <a href="https://doi.org/10.1063/1.4967704" target="_blank">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2016a_Cazzola_PhysPlasmas.pdf" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1063/1.4967704" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1063/1.4967704" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2015">
+<div class="title">Vertical flow in the Thermoelectric Liquid Metal Plasma Facing Structures (TELS) facility at Illinois</div>
+<div class="authors">W. Xu, P. Fiflis, M. Szott, K. Kalathiparambil, S. Jung, M. Christenson, I. Haehnlein, A. Kapat, D. Andruczyk, D. Curreli, D. N. Ruzic</div>
+<div class="journal">Journal of Nuclear Materials, Vol. 463, 1181-1185 (2015)</div>
+<div>
+  <a href="https://doi.org/10.1016/j.jnucmat.2014.12.045" target="_blank">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2015g_Xu_JNM.pdf" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1016/j.jnucmat.2014.12.045" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1016/j.jnucmat.2014.12.045" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2015">
+<div class="title">Modeling of Melt-Pool Formation and Material Removal in Micro-Electro discharge Machining</div>
+<div class="authors">S. S. Mujumdar, D. Curreli, S. G. Kapoor, D. N. Ruzic, </div>
+<div class="journal">Journal of Manufacturing Science and Engineering, Vol. 137, Is. 3, 031007 (2015)</div>
+<div>
+  <a href="https://doi.org/10.1115/1.4029446" target="_blank">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2015f_Mujumdar_JMSE.pdf" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1115/1.4029446" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1115/1.4029446" target="_blank">RIS</a></div>
+</div>
+
+<!--dc2015e_Khaziev_PhysPlasmas-->
+<div class="publication" data-year="2015">
+<div class="title">Ion Energy-Angle Distribution Functions at the Plasma-Material Interface in Oblique Magnetic Fields</div>
+<div class="authors">Rinat Khaziev and Davide Curreli</div>
+<div class="journal">Physics of Plasmas 22, 043503 (2015)</div>
+<div>
+  <a href="https://doi.org/10.1063/1.4916910" target="_blank">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2015e_Khaziev_PhysPlasmas.pdf" target="_blank">PDF</a> / 
+  <a href="https://pubs.aip.org/Citation/Download?resourceId=378138&resourceType=3&citationFormat=2" target="_blank">BibTeX</a> / 
+  <a href="https://pubs.aip.org/Citation/Download?resourceId=378138&resourceType=3&citationFormat=0" target="_blank">RIS</a>
+</div>
+</div>
+
+<div class="publication" data-year="2015">
+<div class="title">Performance of the lithium metal infused trenches in the magnum PSI (Plasma Surface Interactions ) linear plasma simulator</div>
+<div class="authors">P. Fiflis, T. W. Morgan, S. Brons, G. G. van Eden, M. A. van den Berg, W. Xu, D. Curreli, D. N. Ruzic</div>
+<div class="journal">Nuclear Fusion, Vol. 55, N. 11, 113004 (2015)</div>
+<div>
+  <a href="https://doi.org/10.1088/0029-5515/55/11/113004" target="_blank">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2015d_Fiflis_NuclFusion.pdf" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1088/0029-5515/55/11/113004" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1088/0029-5515/55/11/113004" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2015">
+<div class="title">Direct time-resolved observation of tungsten nanostructured growth due to helium plasma exposure</div>
+<div class="authors">P. Fiflis, D. Curreli, D. N. Ruzic</div>
+<div class="journal">Nuclear Fusion, Vol. 55, N. 3, 033020 (2015)</div>
+<div>
+  <a href="https://doi.org/10.1088/0029-5515/55/3/033020" target="_blank">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2015c_Fiflis_NuclFusion.pdf" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1088/0029-5515/55/3/033020" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1088/0029-5515/55/3/033020" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2015">
+<div class="title">Magnetic debris mitigation system for extreme ultraviolet sources</div>
+<div class="authors">D. T. Elg, J. R. Sporre, D. Curreli, I. A. Shchelkanov, D. N. Ruzic, K. R. Umstadter</div>
+<div class="journal">Journal of Micro/Nanolithography, MEMS, and MOEMS, Vol. 14, Is. 1, 013506 (2015)</div>
+<div>
+  <a href="https://doi.org/10.1117/1.JMM.14.1.013506" target="_blank">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2015b_Elg_JMNM.pdf" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.1117/1.JMM.14.1.013506" target="_blank">BibTeX</a> / 
+  <a href="https://doi.org/10.1117/1.JMM.14.1.013506" target="_blank">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2015">
+<div class="title">HIDRA: Hybrid Illinois Device for Research and Applications</div>
+<div class="authors">D. Andruczyk, D. N. Ruzic, D. Curreli, J. P. Allain and the HIDRA (Hybrid Illinois Device for Research and Applications) Team</div>
+<div class="journal">Fusion Science and Technology, Vol. 68, Is. 3, 497-500 (2015)</div>
+<div>
+  <a href="https://doi.org/10.13182/fst14-989">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2015a_Andruczyk_FST.pdf" target="_blank">PDF</a> / 
+  <a href="https://doi.org/10.13182/fst14-989">BibTeX</a> / 
+  <a href="https://doi.org/10.13182/fst14-989">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2014">
+<div class="title">Computational studies of thermoelectric MHD (Thermoelectric Magnetohydro- Dynamic) driven liquid lithium flow in metal trenches</div>
+<div class="authors">W. Xu, D. Curreli, D. N. Ruzic</div>
+<div class="journal">Fusion Engineering and Design, Vol. 89, Is. 12, 2868-2874 (2014)</div>
+<div>
+  <a href="#">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2014f_Xu_FED.pdf" target="_blank">PDF</a> / 
+  <a href="#">BibTeX</a> / 
+  <a href="#">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2014">
+<div class="title">A Model of Micro Electro-Discharge Machining Plasma Discharge in Deionized Water</div>
+<div class="authors">S. S. Mujumdar, D. Curreli, S. G. Kapoor, D. N. Ruzic</div>
+<div class="journal">Journal of Manufacturing Science and Engineering, Vol. 136, Is. 3, 031011 (2014)</div>
+<div>
+  <a href="#">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2014e_Mujumdar_JMSE.pdf" target="_blank">PDF</a> / 
+  <a href="#">BibTeX</a> / 
+  <a href="#">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2014">
+<div class="title">Recent advancement in Plasma Science and Applications - Review Article</div>
+<div class="authors">M. Mozetic, K. Ostrikov, D. N. Ruzic, D. Curreli, U. Cvelbar, A. Vesel, G. Primc, M. Leisch, K. Jousten, O. B. Malyshev, J. H. Hendricks, L. Kövér, A. Tagliaferro, O. Conde, A. J. Silvestre, J. Giapintzakis, M. Buljan, N. Radić, G. Dražić, S. Bernstorff, H. Biederman, O. Kylián, J. Hanuš, S. Miloševič, A. Galtayries, P. Dietrich, W. Unger, M. Lehocky, V. Sedlarik, K. Stana-Kleinschek, A. Drmota-Petrič, J. J. Pireaux, J. W. Rogers, M. Anderle</div>
+<div class="journal">Journal of Physics D: Applied Physics, Vol. 47, N. 15, 153001 (2014)</div>
+<div>
+  <a href="#">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2014d_Mozetic_JPhysD.pdf" target="_blank">PDF</a> / 
+  <a href="#">BibTeX</a> / 
+  <a href="#">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2014">
+<div class="title">Development of a high energy pulsed plasma simulator for the study of liquid lithium trenches</div>
+<div class="authors">S. Jung, M. Christenson, D. Curreli, C. Bryniarski, D. Andruczyk, D. N. Ruzic</div>
+<div class="journal">Fusion Engineering and Design, Vol. 89, Is. 12, 2822-2826 (2014)</div>
+<div>
+  <a href="#">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2014c_Jung_FED.pdf" target="_blank">PDF</a> / 
+  <a href="#">BibTeX</a> / 
+  <a href="#">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2014">
+<div class="title">Wetting properties of liquid lithium on select fusion relevant surfaces</div>
+<div class="authors">P. Fiflis, A. Press, W. Xu, D. Andruczyk, D. Curreli, D. N. Ruzic</div>
+<div class="journal">Fusion Engineering and Design, Vol. 89, Is. 12, 2827-2832 (2014)</div>
+<div>
+  <a href="#">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2014b_Fiflis_FED.pdf" target="_blank">PDF</a> / 
+  <a href="#">BibTeX</a> / 
+  <a href="#">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2014">
+<div class="title">Cross-field diffusion in low-temperature plasma discharges of finite length</div>
+<div class="authors">Davide Curreli and Francis F. Chen</div>
+<div class="journal">Plasma Sources Science and Technology, Vol. 23, N. 6, 064001 (2014)</div>
+<div>
+  <a href="#">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2014a_Curreli_PSST.pdf" target="_blank">PDF</a> / 
+  <a href="#">BibTeX</a> / 
+  <a href="#">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2013">
+<div class="title">Heat transfer of TEMHD (Thermoelectric Magnetohydro- Dynamic) driven lithium flow in stainless steel trenches</div>
+<div class="authors">W. Xu, D. Curreli, D. Andruczyk, T. Mui, R. Switts, D. N. Ruzic</div>
+<div class="journal">Journal of Nuclear Materials, Vol. 438, S422-S425 (2013)</div>
+<div>
+  <a href="#">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2013e_Xu_JNM.pdf" target="_blank">PDF</a> / 
+  <a href="#">BibTeX</a> / 
+  <a href="#">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2013">
+<div class="title">Chemical Sputtering Studies of Lithiated ATJ graphite</div>
+<div class="authors">P. Raman, A. Groll, P. Fiflis, D. Curreli, D. Andruczyk, D.N. Ruzic</div>
+<div class="journal">Journal of Nuclear Materials, Vol. 438, S655-S658 (2013)</div>
+<div>
+  <a href="#">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2013d_Raman_JNM.pdf" target="_blank">PDF</a> / 
+  <a href="#">BibTeX</a> / 
+  <a href="#">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2013">
+<div class="title">Seebeck Coefficient Measurements on Li, Sn Ta, MO, and W</div>
+<div class="authors">P. Fiflis, L. Kirsch, D. Andruczyk, D. Curreli, D. N. Ruzic</div>
+<div class="journal">Journal of Nuclear Materials, Vol. 438, Is. 1-3, 224-227 (2013)</div>
+<div>
+  <a href="#">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2013b_Fiflis_RSI.pdf" target="_blank">PDF</a> / 
+  <a href="#">BibTeX</a> / 
+  <a href="#">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2013">
+<div class="title">Lithium pellet production (LiPP): A device for the production of small spheres of lithium</div>
+<div class="authors">P. Fiflis, D. Andruczyk, A. L. Roquemore, M. McGuire, D. Curreli, D. N. Ruzic</div>
+<div class="journal">Review of Scientific Instruments, Vol. 84, Is. 6, 063506 (2013)</div>
+<div>
+  <a href="#">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2013b_Fiflis_RSI.pdf" target="_blank">PDF</a> / 
+  <a href="#">BibTeX</a> / 
+  <a href="#">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2013">
+<div class="title">Central peaking of magnetized gas discharges</div>
+<div class="authors">Francis F. Chen and Davide Curreli</div>
+<div class="journal">Physics of Plasmas 20, 057102 (2013) (Selected as Editor's Pick)</div>
+<div>
+  <a href="#">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2013a_Chen_PhysPlasmas.pdf" target="_blank">PDF</a> / 
+  <a href="#">BibTeX</a> / 
+  <a href="#">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2012">
+<div class="title">Periodic orbits of a Hill-tether problem originated from collinear points</div>
+<div class="authors">J. Pelaez, M. Lara, C. Bombardelli, F. R. Lucas, M. Sanjurjo-Rivo, D. Curreli, E. C. Lorenzini, D. J. Scheeres</div>
+<div class="journal">Journal of Guidance, Control and Dynamics, Vol. 35, N. 1, 222-233 (2012)</div>
+<div>
+  <a href="#">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2012d_Pelaez_JGCD.pdf" target="_blank">PDF</a> / 
+  <a href="#">BibTeX</a> / 
+  <a href="#">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2012">
+<div class="title">SPIREs: A Finite-Difference Frequency-Domain electromagnetic solver for inhomogeneous magnetized plasma cylinders</div>
+<div class="authors">D. Melazzi, D. Curreli, M. Manente, J. Carlsson, D. Pavarin</div>
+<div class="journal">Computer Physics Communications, Vol. 183, Is. 6, 1182-1191 (2012)</div>
+<div>
+  <a href="#">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2012c_Melazzi_CPC.pdf" target="_blank">PDF</a> / 
+  <a href="#">BibTeX</a> / 
+  <a href="#">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2012">
+<div class="title">Off-line ionization tests using the surface and the plasma ion sources of the SPES Project</div>
+<div class="authors">M. Manzolaro, M. Manente, D. Curreli, J. Vasquez, J. Montano, A. Andrighetto, G. Meneghetti, D. Pavarin</div>
+<div class="journal">Review of Scientific Instruments, Vol. 83, Is. 2, 02A907 (2012)</div>
+<div>
+  <a href="#">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2012_Manzolaro_RSI.pdf" target="_blank">PDF</a> / 
+  <a href="#">BibTeX</a> / 
+  <a href="#">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2012">
+<div class="title">Dynamic stabilization of L2 periodic orbits using attitude-orbit coupling effects</div>
+<div class="authors">M. Lara, J. Pelaez, C. Bombardelli, F. R. Lucas, M. Sanjurjo-Rivo, D. Curreli, E. C. Lorenzini, D. J. Scheeres</div>
+<div class="journal">Journal of Aerospace Engineering, Sciences and Applications, Vol. IV, N. 1, 73-81 (2012)</div>
+<div>
+  <a href="#">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2012a_Lara_JAE.pdf" target="_blank">PDF</a> / 
+  <a href="#">BibTeX</a> / 
+  <a href="#">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2011">
+<div class="title">Stability of electrodynamic tethers in a three-body system </div>
+<div class="authors">D. Zanutto, D. Curreli, E. C. Lorenzini</div>
+<div class="journal">Journal of Guidance, Control and Dynamics, Vol. 34, N. 5, 1441-1456 (2011)</div>
+<div>
+  <a href="#">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2011c_Zanutto_JPP.pdf" target="_blank">PDF</a> / 
+  <a href="#">BibTeX</a> / 
+  <a href="#">RIS</a></div>
+</div>
+
+<div class="publication" data-year="2011">
+<div class="title">Transition from edge-localized to center-localized power deposition in Helicon discharges</div>
+<div class="authors">Davide Curreli</div>
+<div class="journal">The European Physical Journal Applied Physics, Vol. 56, Is. 02, 24007 (2011)</div>
+<div>
+  <a href="#">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2011b_Curreli_EPJAP.pdf" target="_blank">PDF</a> / 
+  <a href="#">BibTeX</a> / 
+  <a href="#">RIS</a></div>
+</div>
+
+<!--dc2011a_Curreli_PhysPlasmas-->
+<div class="publication" data-year="2011">
+<div class="title">Equilibrium Theory of Cylindrical Discharges with Special Application to Helicons</div>
+<div class="authors">Davide Curreli and Francis F. Chen</div>
+<div class="journal">Physics of Plasmas <i style="font-style: normal;">18, 113501 (2011)</i> </div>
+<div>
+  <a href="https://doi.org/10.1063/1.3656941" target="_blank">DOI</a>  /  
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2011a_Curreli_PhysPlasmas.pdf" target="_blank">PDF</a> / 
+  <a href="https://pubs.aip.org/Citation/Download?resourceId=263603&resourceType=3&citationFormat=2" target="_blank">BibTeX</a> / 
+  <a href="https://pubs.aip.org/Citation/Download?resourceId=263603&resourceType=3&citationFormat=0" target="_blank">RIS</a>
+</div>
+</div>
+
+<div class="publication" data-year="2010">
+<div class="title">Three-body dynamics and self-powering of an electrodynamic tether in a plasmasphere</div>
+<div class="authors">Davide Curreli, Enrico C. Lorenzini, Claudio Bombardelli, MSanjurjo-Rivo, F. R. Lucas, J. Pelaez, D. J. Scheeres, M. Lara</div>
+<div class="journal">Journal of Propulsion and Power, Vol. 26, N. 3, 385-393 (2010)</div>
+<div>
+  <a href="#">DOI</a> / 
+  <a href="https://dcurreli.web.engr.illinois.edu/pubs/dc2010_Curreli_JPP.pdf" target="_blank">PDF</a> / 
+  <a href="#">BibTeX</a> / 
+  <a href="#">RIS</a></div>
+</div>
+
+</body>
+</html>
+
+
