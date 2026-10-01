@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <meta name="description" content="List of public talks, presentations, seminars, etc. produced by the research team of the Laboratory of Computational Plasma Physics at the University of Illinois Urbana Champaign.">
+
+  <title>Talks</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://cdn.brand.illinois.edu/favicon.ico">
+	<link rel="canonical" href="https://npre.illinois.edu/people/profile/dcurreli" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+	<!-- meta tags for mobile devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<meta property="og:type" content="article" />
+    <meta property="og:title" content="Davide Curreli
+    " />
+    <meta property="og:description" content="Davide Curreli
+    " />
+    <meta property="og:url" content="https://dcurreli.web.engr.illinois.edu/" />
+    <!--<meta property="og:image" content="https://ws.engr.illinois.edu/directory/viewphoto/dcurreli/1200" />-->
+
+	<!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PGVL6XTD');</script>
+    <!-- End Google Tag Manager -->
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #222;
+      background: #fff;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.5rem;
+    }
+
+    h1 a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1 a:hover {
+      text-decoration: underline;
+    }
+
+    nav {
+      margin-bottom: 2rem;
+    }
+
+    nav a {
+      margin-right: 20px;
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .talk {
+      margin-bottom: 1.5rem;
+    }
+
+    .title {
+      font-weight: bold;
+    }
+
+    .authors {
+      color: #555;
+    }
+
+    .journal {
+      font-style: italic;
+      color: #842121;
+    }
+    
+    .highlights {
+      /*font-weight: bold;*/
+      color: #361a1a;
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+<script>
+function filterAll(){
+  let search = document.getElementById("search").value.toLowerCase();
+  let year = document.getElementById("yearFilter").value;
+
+  let pubs = document.getElementsByClassName("talk");
+
+  for (let i = 0; i < pubs.length; i++){
+    let text = pubs[i].innerText.toLowerCase();
+    let pubYear = pubs[i].getAttribute("data-year");
+
+    let matchSearch = text.includes(search);
+    let matchYear = (year === "all" || pubYear === year);
+
+    pubs[i].style.display = (matchSearch && matchYear) ? "block" : "none";
+  }
+}
+
+function sortTalks(order){
+  let container = document.body;
+  let pubs = Array.from(document.getElementsByClassName("talk"));
+
+  pubs.sort((a,b)=>{
+    let ya = parseInt(a.getAttribute("data-year"));
+    let yb = parseInt(b.getAttribute("data-year"));
+    return order === "asc" ? ya - yb : yb - ya;
+  });
+
+  pubs.forEach(p=>container.appendChild(p));
+}
+
+function populateYears(){
+  let years = new Set();
+  let pubs = document.getElementsByClassName("talk");
+
+  for (let p of pubs){
+    years.add(p.getAttribute("data-year"));
+  }
+
+  let select = document.getElementById("yearFilter");
+  Array.from(years).sort((a,b)=>b-a).forEach(y=>{
+    let opt = document.createElement("option");
+    opt.value = y;
+    opt.text = y;
+    select.appendChild(opt);
+  });
+}
+
+window.onload = populateYears;
+</script>
+</head>
+
+
+
+
+
+<body>
+    
+<h1>
+<a href="https://npre.illinois.edu/people/profile/dcurreli" target="_blank">Talks</a>
+</h1>
+
+<nav>
+<a href="https://dcurreli.web.engr.illinois.edu/" target="_blank">Home</a>
+<a href="https://npre.illinois.edu/people/profile/dcurreli" target="_blank">Profile</a>
+<a href="https://dcurreli.web.engr.illinois.edu/pubs/">Publications</a>
+<a href="https://github.com/lcpp-org" target="_blank">GitHub</a>
+<a href="https://orcid.org/0000-0001-6406-6699" target="_blank">ORCID</a>
+<!-- <a href="https://dcurreli.web.engr.illinois.edu/talks/" target="_blank">Talks</a> -->
+</nav>
+
+<!--<img-->
+<!--  src="https://dcurreli.web.engr.illinois.edu/pubs/bardeen3.jpg"-->
+<!--  alt="Website banner"-->
+<!--  class="banner-image"-->
+<!--  style="max-width: 100%; width: 760px;"-->
+<!--/>-->
+
+<hr>
+
+<input type="text" id="search" onkeyup="filterAll()" placeholder="Search talks...">
+
+<select id="yearFilter" onchange="filterAll()">
+  <option value="all">All years</option>
+</select>
+
+<!--<button onclick="sortPubs('desc')">Newest</button>-->
+<!--<button onclick="sortPubs('asc')">Oldest</button>-->
+
+(List of Talks is incomplete)
+
+<hr>
+
+<div class="talk" data-year="2026">
+<div class="title">Exploration of Scrape-Off-Layer Collisionality and Non-Resonant Divertor Characteristics of Lithium Streaks in HIDRA</div>
+<div class="authors">Steven Gula, Daniel Andruczyk, Davide Curreli</div>
+<div class="journal">9th International Symposium on Liquid Metal Applications for Fusion, Eindhoven, The Netherlands, September 14-18 (2026)</div>
+<div class="highlights">Best Student Presentation Award!</div>
+<div>
+  <a href="https://event.fourwaves.com/isla-9/abstracts/8812f089-1466-40c1-a038-dcaa6cef3222" target="_blank">DOI</a> / 
+  <a href="https://github.com/lcpp-org/isla-2026-gula" target="_blank">GitHub</a>
+</div>
+</div>
+
+<div class="talk" data-year="2025">
+<div class="title">Spectroscopic Measurements and Global Chemical Modeling of Humid Nitrogen Plasma</div>
+<div class="authors">R. Pierrard, A. Jayanarasimhan, S. Peyres, S. Yatom, D. Curreli and M. Sankaran</div>
+<div class="journal">Meet. Abstr. MA2025-01 1370 (2025)</div>
+<div>
+    <a href="https://doi.org/10.1149/MA2025-01221370mtgabs" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">Numerical simulations of wall impurity emission from the RF limiters of the Alcator C-Mod ICRH antennas using the hPIC2 and RustBCA codes</div>
+<div class="authors">Andrea Galvan, Davide Curreli, Christina Migliore, John Wright, and Paul Bonoli</div>
+<div class="journal">Bull. Am. Phys. Soc. 65th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Denver, Colorado, October 30 - November 3 (2023)</div>
+<div>
+  <a href="https://meetings-archive.aps.org/dpp/2023/gp11/137" target="_blank">DOI</a> / 
+  <a href="https://github.com/lcpp-org/aps-dpp-2023-galvan" target="_blank">GitHub</a> / 
+  <a href="https://github.com/lcpp-org/aps-dpp-2023-galvan/blob/main/APS-DPP-Poster_2023_FINAL.pdf" target="_blank">PDF</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">Computational Investigation of Ion Energy Angle Distribution within Trench Structures using the hPIC2 Particle-in-Cell Code</div>
+<div class="authors">Andrew Liu, Logan Meredith, and Davide Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 65th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Denver, Colorado, October 30 - November 3 (2023)</div>
+<div>
+  <a href="https://meetings-archive.aps.org/dpp/2023/pp11/129" target="_blank">DOI</a> / 
+  <a href="https://github.com/lcpp-org/aps-dpp-2023-liu" target="_blank">GitHub</a> / 
+  <a href="https://github.com/lcpp-org/aps-dpp-2023-liu/blob/main/APS-DPP%202023%20Poster%20REV2.pptx" target="_blank">PPTX</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">A comparative study of tungsten erosion-redeposition in divertor sheaths versus RF sheaths on WEST</div>
+<div class="authors">Ananthi Renganathan, , and Davide Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 65th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Denver, Colorado, October 30 - November 3 (2023)</div>
+<div>
+  <a href="https://meetings.aps.org/Meeting/DPP23/Session/UP11.52" target="_blank">DOI</a> / 
+  <a href="https://github.com/lcpp-org/aps-dpp-2023-renganathan" target="_blank">GitHub</a> / 
+  <a href="https://github.com/lcpp-org/aps-dpp-2023-renganathan/blob/main/APS-DPP-2023-renganathan.pptx" target="_blank">PPTX</a> / 
+  <a href="https://github.com/lcpp-org/aps-dpp-2023-renganathan/blob/main/APS-DPP-2023-renganathan.pdf" target="_blank">PDF</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">Recent insights into the role of light impurities in the erosion of the all-W wall surfaces in WEST</div>
+<div class="authors">C.C. Klepper, E.A. Unterberg, A. Dias, C.A. Johnson, A. Kumar, Y. Marandet, M. Raghunathan, A. Grosjean, D.C. Donovan, L. Colas, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 65th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Denver, Colorado, October 30 - November 3 (2023)</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP23/Session/UP11.51" target="_blank">DOI</a> 
+</div>
+</div> 
+
+<div class="talk" data-year="2023">
+<div class="title">First-order elliptical corrections to the gyroaveraging operation in high E-field-shear regions in XGC</div>
+<div class="authors">X.Z. Tan, D. Curreli, R. Hager, S.H. Ku, C.S. Chang</div>
+<div class="journal">Bull. Am. Phys. Soc. 65th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Denver, Colorado, October 30 - November 3 (2023)</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP23/Session/TP11.82" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">GITRm: A 3D Unstructured Mesh-based Particle Tracking Code for Global Impurity Transport in Fusion Devices</div>
+<div class="authors">D.D. Nath, V.V. Srinivasaragavan, T.R. Younkin, M.F. Huq, D. Curreli, Z.J. Bergstrom, A. De, J Guterl, M.S. Shephard, O. Sahni</div>
+<div class="journal">Bull. Am. Phys. Soc. 65th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Denver, Colorado, October 30 - November 3 (2023)</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP23/Session/PP11.65" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">An anisotropic hybrid structured-unstructured mesh approach enabling PIC simulations of the Scrape-Off-Layer</div>
+<div class="authors">M.F. Huq, L.T. Meredith, O. Sahni, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 65th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Denver, Colorado, October 30 - November 3 (2023)</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP23/Session/PP11.64" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">An anisotropic hybrid structured-unstructured mesh approach enabling PIC simulations of the Scrape-Off-Layer</div>
+<div class="authors">M.F. Huq, L.T. Meredith, O. Sahni, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 65th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Denver, Colorado, October 30-November 3, 2023</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP23/Session/PP11.64" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">Development of an integrated modeling framework for plasma-material interaction and its application on tungsten erosion and transport from the RF antenna structures in the WEST tokamak</div>
+<div class="authors">A. Kumar, A. Diaw, C.A. Johnson, C.K. Klepper, C.H. Lau, J. Lore, W. Tierens, T.R. Younkin, E.A. Unterberg, J.T. Drobny, D. Curreli, N. Bertelli, S. Shiraiwa, M. Ono, L. Colas, J.P. Gunn, C. Guillemaut, J. Hillairet</div>
+<div class="journal">Bull. Am. Phys. Soc. 65th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Denver, Colorado, October 30-November 3, 2023</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP23/Session/NP11.53" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">Investigation of materials for radio frequency antenna plasma facing components</div>
+<div class="authors">J.B. Caughman, C.A. Johnson, E.A. Unterberg, K. Butler, D.C. Donovan, A. Galvan, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 65th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Denver, Colorado, October 30-November 3, 2023</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP23/Session/NP11.52" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">Multi-Pronged Applications of RF Sheath and Ponderomotive Force Modeling with the Time-Domain Plasma Model in Vorpal/VSim</div>
+<div class="authors">D.N. Smithe, T.G. Jenkins, J.R. Myra, M. Umansky, B. Dudson, D. Curreli, M. Rezazadeh, M.W. Brookman</div>
+<div class="journal">Bull. Am. Phys. Soc. 65th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Denver, Colorado, October 30-November 3, 2023</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP23/Session/NP11.50" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">Overview of Research Results from the SciDAC Partnership for Simulation of Fusion Relevant RF Actuators</div>
+<div class="authors">P.T. Bonoli, D.B. Batchelor, N. Bertelli, D. Curreli, C.D. Hauck, T. Kolev, J. Lore, D.N. Smithe, R.W. Harvey, J.R. Myra, M.S. Shephard, M. Umansky</div>
+<div class="journal">Bull. Am. Phys. Soc. 65th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Denver, Colorado, October 30-November 3, 2023</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP23/Session/NP11.41" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">Time-domain modeling of RF sheath potentials for impurity production estimates in SPARC</div>
+<div class="authors">T.G. Jenkins, D.N. Smithe, A. Yum, D. Curreli, M. Rezazadeh, M. Brookman, M. Garrett</div>
+<div class="journal">Bull. Am. Phys. Soc. 65th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Denver, Colorado, October 30-November 3, 2023</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP23/Session/NO05.9" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">Estimates of RF induced sputtering and impurity emission from the ICRH actuators on SPARC</div>
+<div class="authors">D. Curreli, M. Rezazadeh, T.G. Jenkins, D. Smithe, M. Brookman, M. Garrett</div>
+<div class="journal">Bull. Am. Phys. Soc. 65th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Denver, Colorado, October 30-November 3, 2023</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP23/Session/JP11.134" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">Overview of SPARC Progress: Construction, Manufacturing, and Operational Planning</div>
+<div class="authors">Alexander J Creely, John L Ball, Devon J Battaglia, Alexander F Battey, Tom Body, John C Boguski, Anson Braun, Michael W Brookman, Dan Brunner, Daniel A Burgess, Leonardo Corsaro, Davide Curreli, Thomas Eich, Jacqueline Farnsworth, Darren T Garnier, Robert S Granetz, Joshua N Hawke, Jon C Hillesheim, Nathan T Howard, Jerry W Hughes, Thomas G Jenkins, Adam Q Kuang, Yijun Lin, Nikolas C Logan, Tom Looby, Shon P Mackie, Robert T Mumgaard, Clayton E Myers, Enrico Panontin, Prasoon Raj, Cristina Rea, Matthew L Reinke, John E Rice, Pablo Rodriguez-Fernandez, Alex R Saperstein, steven D scott, Khrystyna Shvedova, Inwoo Song, Joshua D Souza, Ian G Stewart, Ryan M Sweeney, Anna A Teplukhina, Roy A Tinguely, Gregorio Luigi Trevisan, Didier Vezinet, Gregory M Wallace, Xinyan Wang, Michael Wigram, Dennis Whyte, Yiru Xiao</div>
+<div class="journal">Bull. Am. Phys. Soc. 65th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Denver, Colorado, October 30-November 3, 2023</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP23/Session/JP11.114" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">Hybrid fluid-particle simulations of plasma plume evolution following photoablation events</div>
+<div class="authors">L.T. Meredith, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 65th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Denver, Colorado, October 30-November 3, 2023</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP23/Session/JP11.57" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">Novel Semi-Classical Cross Section Solver of Particle-Particle and Particle-Cluster Interactions for the inclusion of Heavy Ion Impacts and Cluster Formation in Plasma Simulations</div>
+<div class="authors">S. Armstrong, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 65th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Denver, Colorado, October 30-November 3, 2023</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP23/Session/JP11.47" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">Multi-Fidelity Machine Learning Approach for Fast Determination of Ion Impact Energy-Angle Distributions and Material Sputtering in Radio-Frequency Plasma Sheaths</div>
+<div class="authors">M. Mustafa, L.T. Meredith, M. Rezazadeh, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 65th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Denver, Colorado, October 30-November 3, 2023</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP23/Session/GP11.147" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">Lithium Vapor Shielding: Experiment and Modeling</div>
+<div class="authors">D. Andruczyk, R. Rizkallah, D. Curreli, A. Shone, R. Maingi, F. Romano, T.W. Morgan</div>
+<div class="journal">Bull. Am. Phys. Soc. 65th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Denver, Colorado, October 30-November 3, 2023</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP23/Session/GO09.15" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">Artificial Neural Networks for Reaction Rate Prediction in AlO and UO Plasma Chemistry</div>
+<div class="authors">S. Marcinko, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 76th Annual Gaseous Electronics Conference, Ann Arbor, Michigan, October 9-13, 2023</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/GEC23/Session/IW5.24" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">hPIC2: a performance-portable, hybrid plasma code for dynamic plasma-material interactions</div>
+<div class="authors">L. Meredith, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 76th Annual Gaseous Electronics Conference, Ann Arbor, Michigan, October 9-13, 2023</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/GEC23/Session/IT4.23" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2023">
+<div class="title">Production of a New Tool for Debris Formation Models</div>
+<div class="authors">S. Armstrong, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 76th Annual Gaseous Electronics Conference, Ann Arbor, Michigan, October 9-13, 2023</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/GEC23/Session/IT4.22" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2022">
+<div class="title">A predictor-corrector scheme for hybrid fluid-PIC (Particle-In-Cell)  electrostatic plasma simulation</div>
+<div class="authors">L. Meredith, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 64th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Spokane, Washington, October 17-21, 2022</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP22/Session/GO05.7" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2022">
+<div class="title">Behavior of RF (Radio-Frequency) sheath admittance across Ion Cyclotron Resonance analyzed with fluid theory and large-scale Particle-in-Cell simulations</div>
+<div class="authors">M. Rezazadeh, J. Myra, L. Meredith, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 64th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Spokane, Washington, October 17-21, 2022</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP22/Session/PP11.83" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2022">
+<div class="title">Elliptical corrections to the gyroaveraging operation in gyrokinetic simulations in high E-field-gradients</div>
+<div class="authors">X.Z. Tan, D. Curreli, R. Hager, G. Wilkie, S. H. Ku, C. S. Chang</div>
+<div class="journal">Bull. Am. Phys. Soc. 64th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Spokane, Washington, October 17-21, 2022</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP22/Session/BP11.18" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2022">
+<div class="title">Assessment of the sources of uncertainty for the validation of wall erosion models in the WEST tokamak</div>
+<div class="authors">A. Renganathan, D. Curreli, S. Blondel, J. Drobny, W. Garcia, J. P. Gunn, A. Hayes, J. Lore, A. Lasa Esquisabel, L. Meredith, E. Tsitrone, E. A. Unterberg, B. Wirth</div>
+<div class="journal">Bull. Am. Phys. Soc. 64th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Spokane, Washington, October 17-21, 2022</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP22/Session/BP11.86" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2022">
+<div class="title">Enabling Multiscale Particle-in-Cell simulations using PUMI (Parallel Unstructured Mesh Infrastructure) Multi-Block Boundary Layer Meshes in hPIC2</div>
+<div class="authors">M. F. Huq, V.V. Srinivasaragavan, L. Meredith, O. Sahni, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 64th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Spokane, Washington, October 17-21, 2022</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP22/Session/BP11.19" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2022">
+<div class="title">Data-driven surrogate modeling of hPIC ion energy-angle distributions for high-dimensional sensitivity analysis of plasma parameters uncertainty</div>
+<div class="authors">M. Mustafa, P. Seleson, D. Curreli, C. Hauck, M. Stoyanov, D. Bernholdt</div>
+<div class="journal">Bull. Am. Phys. Soc. 64th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Spokane, Washington, October 17-21, 2022</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP22/Session/BP11.20" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2022">
+<div class="title">Estimates of carbon sputtering from fast-ion losses on DIII-D QH-mode plasmas</div>
+<div class="authors">A. Bortolon, F. Scotti, J. Drobny, G. Kramer, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 64th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Spokane, Washington, October 17-21, 2022</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP22/Session/UP11.84" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2022">
+<div class="title">Update of the Latest Operational Results from HIDRA (Hybrid Illinois Device for Research and Applications) and MEME</div>
+<div class="authors">D. Andruczyk, R. Rizkallah, D. O'Dea, A. Shone, B. Kamiyama, S. Smith, R. Maingi, C. Kessel, P. Buxton, M. Gryaznevich, D. Curreli, D. Ruzic</div>
+<div class="journal">Bull. Am. Phys. Soc. 64th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Spokane, Washington, October 17-21, 2022</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP22/Session/NO05.2" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2022">
+<div class="title">GITR (Global Impurity Transport Code) Monte Carlo Predictive Simulations of the DIII-D SAS Divertor</div>
+<div class="authors">A. Hayes, H. Hughes, T. Younkin, J. Guterl, G. Sinclair, Z. Bergstrom, J. Lore, J. Drobny, D. Curreli, B. Wirth</div>
+<div class="journal">Bull. Am. Phys. Soc. 64th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Spokane, Washington, October 17-21, 2022</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP22/Session/NO05.13" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2022">
+<div class="title">Coupling Finite Element and Finite Volume within the Plasma Fluid Code: Zapdos</div>
+<div class="authors">C. Dechant, C. Icenhour, G. Gall, S. Keniley, A. Lindsay, D. Curreli, S. Shannon</div>
+<div class="journal">Bull. Am. Phys. Soc. 75th Annual Gaseous Electronics Conference, Sendai, Japan, October 3-7, 2022</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/GEC22/Session/DR1.2" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2021">
+<div class="title">Effect of ion acoustic instabilities on the energy-angle distributions of the ions impacting on the wall of a finite-size plasma</div>
+<div class="authors">M.F. Huq, M. Mustafa, L. Meredith, D. Curreli</div>
+<div class="journal">Bull. Am. Soc. 63rd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 66, Number 13, Pittsburgh, PA, November 8-12, 2021</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP21/Session/ZP11.18" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2021">
+<div class="title">Sensitivity analysis of the particle in cell (PIC) code hPIC for near surface plasma conditions</div>
+<div class="authors">M. Mustafa, D. Curreli, P. Seleson, C. Hauck</div>
+<div class="journal">Bull. Am. Soc. 63rd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 66, Number 13, Pittsburgh, PA, November 8-12, 2021</div>
+<div>
+    <a href="https://meetings.aps.2021/Meeting/DPP21/Session/PP11.19" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2021">
+<div class="title">hPIC2: a GPU-accelerated, hybrid particle-in-cell code for plasma-material interactions in complex geometries</div>
+<div class="authors">L. Meredith, M. Rezazadeh, M. F. Huq, M. Mustafa, V.V. Srinivasaragavan, O. Sahni, D. Curreli</div>
+<div class="journal">Bull. Am. Soc. 63rd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 66, Number 13, Pittsburgh, PA, November 8-12, 2021</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP21/Session/NM09.6" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2021">
+<div class="title">Modeling Microsecond Timescale Molecular Formation in Laser Ablated Plasma Plumes</div>
+<div class="authors">M. Finko, D. Curreli, J. Crowhurst, W. Keller, A. Rousso, D. Weisz, H. Radousky, K. Knight</div>
+<div class="journal">Bull. Am. Soc. 63rd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 66, Number 13, Pittsburgh, PA, November 8-12, 2021</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP21/Session/JO08.2" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2021">
+<div class="title">Zapdos-CRANE (Chemical ReAction NEtwork) implementation of a lithium vapor shielding model</div>
+<div class="authors">R. Rizkallah, A. Kapat, S. Keniley, D. Curreli</div>
+<div class="journal">Bull. Am. Soc. 63rd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 66, Number 13, Pittsburgh, PA, November 8-12, 2021</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP21/Session/JP11.20" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2021">
+<div class="title">Development of a non-linear RF (Radio-Frequency) sheath benchmark suite</div>
+<div class="authors">J. Wright, C. Migliore, J. Myra, D. Curreli, D. Smithe, T. Jenkins, M. Stowell, D. Green, C. Beers, T. Younkin, S. Shiraiwa, N. Bertelli, M. Poulos, H. Kohno, and the RF-SciDAC (Radio-Frequency-Scientific Discovery through Advanced Computing) Team</div>
+<div class="journal">Bull. Am. Soc. 63rd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 66, Number 13, Pittsburgh, PA, November 8-12, 2021</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP21/Session/GP11.10" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2021">
+<div class="title">Recent Results from the SciDAC (Scientific Discovery through Advanced Computing) Partnership for Simulation of Fusion Relevant RF (Radio-Frequency) Actuators</div>
+<div class="authors">D. Green, P. Bonoli, N. Bertelli, A. Dimits, T. Kolev, D. Smithe, R. Harvey, J. Myra, M. Shephard, D. Curreli, L. Mu, and the RF-SciDAC (Scientific Discovery through Advanced Computing) Team</div>
+<div class="journal">Bull. Am. Soc. 63rd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 66, Number 13, Pittsburgh, PA, November 8-12, 2021</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP21/Session/GP11.6" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2021">
+<div class="title">Porting the PUMImbbl (Parallel Unstructured Mesh Infrastructure multi-block boundary layer) library to GPUs and integration in the hPIC2 Particle-in-Cell code</div>
+<div class="authors">M. F. Huq, V.V. Srinivasaragavan, L. Meredith, O. Sahni, D. Curreli</div>
+<div class="journal">Bull. Am. Soc. 63rd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 66, Number 13, Pittsburgh, PA, November 8-12, 2021</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP21/Session/JO08.15" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2021">
+<div class="title">Particle-in-Cell study of impurity production from RF (Radio-Frequency) sheaths in front of ICRH (Ion Cyclotron Resonance Heating) actuators</div>
+<div class="authors">M. Rezazadeh, M. Elias, L. Meredith, J. Drobny, D Curreli</div>
+<div class="journal">Bull. Am. Soc. 63rd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 66, Number 13, Pittsburgh, PA, November 8-12, 2021</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP21/Session/JP11.39" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2021">
+<div class="title">Integrated Multi-Scale Modeling of Impurity Migration and Plasma-Facing Material Evolution in Present and Future Tokamaks</div>
+<div class="authors">A. Lasa Esquisabel, S. Blondel, T. Younkin, D. Bernholdt, J. Canik, M. Cianciosa, W. Elwasif, D. Green, P. Roth, J. Drobny, D. Curreli, B. Wirth</div>
+<div class="journal">Bull. Am. Soc. 63rd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 66, Number 13, Pittsburgh, PA, November 8-21, 2021</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP21/Session/NM09.3" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2021">
+<div class="title">Insights into hydrogen peroxide generation and reaction chemistry at a dc plasma-liquid interface by multiphysics modeling and chemical probe characterization</div>
+<div class="authors">S. Keniley, E. Perez, N. Uner, M. Sankaran, Davide Curreli</div>
+<div class="journal">Bull. Am. Soc. 74th Annual Gaseous Electronics Conference, Volume 66, Number 7, Virtual GEC Platform, October 4-8, 2021</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/GEC21/Session/MR12.4" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2021">
+<div class="title">Species-Weighted Automated Network Reduction via Principle Component Analysis</div>
+<div class="authors">S. Marcinko, D. Curreli</div>
+<div class="journal">Bull. Am. Soc. 74th Annual Gaseous Electronics Conference, Volume 66, Number 7, Virtual GEC Platform, October 4-8, 2021</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/GEC21/Session/KW81.55" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2021">
+<div class="title">Refined Optimization of a Uranium Oxide Reaction Mechanism Using Plasma Flow Reactor Measurements</div>
+<div class="authors">M. Finko, D. Curreli, B. Koroglu, K. Rodriguez, T. Rose, H. Radousky, K. Knight</div>
+<div class="journal">Bull. Am. Soc. 74th Annual Gaseous Electronics Conference, Volume 66, Number 7, Virtual GEC Platform, October 4-8, 2021</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/GEC21/Session/DT24.3" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2021">
+<div class="title">Validation and Verification Methods for the Open Source Code: Zapdos</div>
+<div class="authors">C. Dechant, C. Icenhour, G. Gall, S. Keniley, A. Lindsay, D. Curreli, S. Shannon</div>
+<div class="journal">Bull. Am. Soc. 74th Annual Gaseous Electronics Conference, Volume 66, Number 7, Virtual GEC Platform, October 4-8, 2021</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/GEC21/Session/CT14.2" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2020">
+<div class="title">Lithium Vapor Shielding in a Neutrally Seeded Environment</div>
+<div class="authors">R. Rizkallah, F. Romano, G. Akkermans, P. Rindt, T. Morgan, A. de Castro Calles, D. Curreli, D. Andruczyk</div>
+<div class="journal">Bull. Am. Soc. 62nd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 65, Number 11, Remote, November 9-13, 2020</div>
+<div>
+    <a href="https://ui.adsabs.harvard.edu/abs/2020APS..DPPJ19013R/abstract" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2020">
+<div class="title">Improving Performance and Extending Simulation Domain of hPIC Particle-In-Cell Code by Incorporating PUMI (Parallel Unstructured Mesh Infrastructure) Based Non-uniform Mesh</div>
+<div class="authors">M. F. Huq, V. Vittal-Srinivasaragavan, O. Sahni, M. Shephard, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 62nd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 65, Number 11, Remote, November 9-13, 2020</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP20/Session/ZO04.12" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2020">
+<div class="title">A Parametric Study using Fluid and Particle-in-Cell Modeling of the Ion Distributions in RF (Radio-Frequency) sheaths at ICRH (Ion Cyclotron Resonance Heating) antennas</div>
+<div class="authors">M. Elias, D. Curreli, J. Myra</div>
+<div class="journal">Bull. Am. Phys. Soc. 62nd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 65, Number 11, Remote, November 9-13, 2020</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP20/Session/PO05.9" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2020">
+<div class="title">Open source plasma simulation in the MOOSE (Multi-Physics Object Oriented Simulation Environment) framework</div>
+<div class="authors">S. Shannon, D. Curreli, C. Dechant, G. Gall, D. Green, C. Icenhour, S. Keniley, A. Lindsay</div>
+<div class="journal">Bull. Am. Phys. Soc. 62nd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 65, Number 11, Remote, November 9-13, 2020</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP20/Session/NM10.10" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2020">
+<div class="title">High-performance PIC-BCA (Particle-in-Cell-Binary Collision Approximation) code for fusion-relevant plasma-material interactions</div>
+<div class="authors">J.T.Drobny, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 62nd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 65, Number 11, Remote, November 9-13, 2020</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP20/Session/JP19.5" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2020">
+<div class="title">Integrated model predictions of the impact of He pre-exposures on ITER (International Thermonuclear Experimental Reactor) burning-plasma conditions</div>
+<div class="authors">A. Lasa, S. Blondel, J. Drobny, D. Curreli, J. Lore, J. Canik, B. Wirth</div>
+<div class="journal">Bull. Am. Phys. Soc. 62nd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 65, Number 11, Remote, November 9-13, 2020</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP20/Session/JP19.4" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2020">
+<div class="title">Modeling the Dependence of Laser Ablated Plume Dynamics on Target Material</div>
+<div class="authors">M. Finko, D. Curreli, J. Crowhurst, W. Keller, D. Weisz, A. Rousso, B. Koroglu, T. Rose, H. Radousky</div>
+<div class="journal">Bull. Am. Phys. Soc. 62nd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 65, Number 11, Remote, November 9-13, 2020</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP20/Session/JO07.2" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2020">
+<div class="title">Review of single effect experiments for the National LM PFC (Liquid Metals Plasma-Facing Components) Program</div>
+<div class="authors">D. Andruczyk, R. Rizkallah, D. O'Dea, D. Curreli, R. Maingi, C. Kessel, S. Smolentsev</div>
+<div class="journal">Bull. Am. Phys. Soc. 62nd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 65, Number 11, Remote, November 9-13, 2020</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP20/Session/GO13.5" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2020">
+<div class="title">and the RF (Radio-Frequency) SciDAC (Scientific Discovery through Advanced Computing) team, Particle-in-Cell Simulations of the Ion Energy-Angle Distributions at ICRH (Ion Cyclotron Resonance Heating) Antennas in RF (Radio-Frequency) sheaths</div>
+<div class="authors">D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 62nd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 65, Number 11, Remote, November 9-13, 2020</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP20/Session/BO11.10" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2020">
+<div class="title">A Hybrid Particle Method for the Kinetic Treatment of Magnetized Plasma Sheaths using Full Orbit to Guiding Center Conversion</div>
+<div class="authors">X.Z. Tan,  D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 62nd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 65, Number 11, Remote, November 9-13, 2020</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP20/Session/BO05.6" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2020">
+<div class="title">Status and Progress of the Domestic Liquid Metal Plasma-Facing Component Design Program</div>
+<div class="authors">R. Maingi, A. Khodak, E. Kolemen, C. E. Kessel, J. Jun, J. D. Lore, B. A. Pint, D. L. Youchison, S. Smolentsev, D. Andruczyk, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 62nd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 65, Number 11, Remote, November 9-13, 2020</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP20/Session/GO13.4" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2020">
+<div class="title">Recent Results from the SciDAC (Scientific Discovery through Advanced Computing) for Simulation of Fusion Relevant RF (Radio-Frequency) Actuators</div>
+<div class="authors">P. T. Bonoli, D. L. Green, E. D'Azevedo, N. Bertelli, A. Dimits, T. Kolev, D. N. Smithe, R. W. Harvey, J. R. Myra, M. S. Shephard, D. Curreli, RF (Radio-Frequency) SciDAC (Scientific Discovery through Advanced Computing) Partnership Collaboration</div>
+<div class="journal">Bull. Am. Phys. Soc. 62nd Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 65, Number 11, Remote, November 9-13, 2020</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP20/Session/BO11.1" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2020">
+<div class="title">Modeling solvated electron penetration depth and aqueous chemistry at the humid air plasma-water interface</div>
+<div class="authors">S. Keniley, D. Curreli</div>
+<div class="journal">73rd Annual Gaseous Electronics, Virtual Conference, Volume 65, Number 10, October 5-9, 2020</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/GEC20/Session/YF3.4" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2020">
+<div class="title">Kinetic Modeling of Metal Oxide Chemistry and Particle Formation in a Plasma Flow Reactor</div>
+<div class="authors">M. Finko, D. Curreli, B. Koroglu, T. Rose, D. Weisz, J. Crowhurst, H. Radousky</div>
+<div class="journal">73rd Annual Gaseous Electronics, Virtual Conference, Volume 65, Number 10, October 5-9, 2020</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/GEC20/Session/TR1.4" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2020">
+<div class="title">Validations for Improvements of the Open Source Plasma Code Zapdos</div>
+<div class="authors">C. Dechant, Y. Xiao, C. Icenhour, S. Keniley, A. Lindsay, D. Curreli, S. Shannon</div>
+<div class="journal">Bull. Am. Soc. 73rd Annual Gaseous Electronics, Virtual Conference, Volume 65, Number 10, October 5-9, 2020</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/GEC20/Session/QW2.3" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2020">
+<div class="title">Semi-Classical Reaction Network Generation from Localized Molecular Orbital DFT (Density Functional Theory) for Arbitrary Network Complexities</div>
+<div class="authors">S. Marcinko, D. Curreli</div>
+<div class="journal">Bull. Am. Soc. 73rd Annual Gaseous Electronics, Virtual Conference, Volume 65, Number 10, October 5-9, 2020</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/GEC20/Session/LT2.16" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2019">
+<div class="title">CRANE (Chemical ReAction NEtwork): A MOOSE (Multi-Physics Object Oriented Simulation Environment)-based Open Source Tool for Plasma Chemistry Applications</div>
+<div class="authors">S. Keniley, D. Curreli</div>
+<div class="journal">arXiv preprint arXiv:1905.10004, 2019</div>
+<div>
+    <a href="https://doi.org/10.48550/arXiv.1905.10004" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2019">
+<div class="title">Validation of the Open Source Multi-Fluid Plasma Code: Zapdos</div>
+<div class="authors">C. Dechant, S. Keniley, B. Myers, K. Stapelmann, D. Curreli, S. Shannon</div>
+<div class="journal">Bull. Am. Phys. Soc. 72nd Annual Gaseous Electronics Conference, Volume 64, Number 10, College Station, Texas, October 28-November 1, 2019</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/GEC19/Session/RR3.7" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2019">
+<div class="title">Extensible Algorithmic Generation of Molecular Electron-Impact Cross-Section Data from DFT (Density Functional Theory) Information for Simple Organic Molecules</div>
+<div class="authors">S. Marcinko, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 72nd Annual Gaseous Electronics Conference, Volume 64, Number 10, College Station, Texas, October 28-November 1, 2019</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/GEC19/Session/FT1.68" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2019">
+<div class="title">Stochastic Optimization of a Uranium Reaction Mechanism Using Plasma Flow Reactor Measurements</div>
+<div class="authors">M. Finko, D. Curreli, M. Azer, B. Koroglu, T. Rose, D. Weisz, J. Crowhurst, H. Radousky</div>
+<div class="journal">Bull. Am. Phys. Soc. 72nd Annual Gaseous Electronics Conference, Volume 64, Number 10, College Station, Texas, October 28-November 1, 2019</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/GEC19/Session/ET3.5" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2019">
+<div class="title">Numerical Modeling of the Plasma-Liquid Interface using the Zapdos-CRANE (Chemical ReAction NEtwork)Open-Source Package</div>
+<div class="authors">S. Keniley, D. Curreli, C. DeChant, S. Shannon</div>
+<div class="journal">Bull. Am. Phys. Soc. 72nd Annual Gaseous Electronics Conference, Volume 64, Number 10, College Station, Texas, October 28-November 1, 2019</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/GEC19/Session/DT3.2" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2019">
+<div class="title">Particle-particle simulations of plasma-material interactions</div>
+<div class="authors">J. Drobny, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 61th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 64, Number 11, Fort Lauderdale, Florida, October 21-25, 2019</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP19/Session/PO6.11" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2019">
+<div class="title">A New Numerical Scheme to enforce Charge Conservation in Particle-in-Cells with Boltzmann Electrons</div>
+<div class="authors">M. Elias, D. Curreli, J. Myra</div>
+<div class="journal">Bull. Am. Phys. Soc. 61th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 64, Number 11, NP10.22, Fort Lauderdale, Florida, October 21-25, 2019</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP19/Session/NP10.22" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2019">
+<div class="title">Nonuniform Mesh Based hPIC Code for Efficient Scrape-Off-Layer Computation</div>
+<div class="authors">M.F. Huq, V. Vittal-Srinivasaragavan, O. Sahni, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 61th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 64, Number 11, NP10.21, Fort Lauderdale, Florida, October 21-25, 2019</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP19/Session/NP10.21" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2019">
+<div class="title">Constraining a Uranium Reaction Mechanism Using Stochastic Optimization and Plasma Flow Reactor Measurements</div>
+<div class="authors">M. Finko, D. Curreli, M. Azer, B. Koroglu, T. Rose, D. Weisz, J. Crowhurst, H. Radousky</div>
+<div class="journal">Bull. Am. Phys. Soc. 61th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 64, Number 11, Fort Lauderdale, Florida, October 21-25, 2019</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP19/Session/JO8.8" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2019">
+<div class="title">Verification and UQ activities of the Particle-In-Cell code hPIC for Near Surface Plasma Conditions</div>
+<div class="authors">M. Mustafa, D. Curreli, P. Seleson, C. Hauck, D. Bernholdt</div>
+<div class="journal">Bull. Am. Phys. Soc. 61th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, CO7.6, Fort Lauderdale, Florida, October 21-25, 2019</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP19/Session/CO7.6" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2019">
+<div class="title">Numerical Simulations of Electron Transport across a Plasma-Water Interface using Zapdos-CRANE (Chemical ReAction NEtwork)</div>
+<div class="authors">S. Keniley, D. Curreli, C. DeChant, S. Shannon</div>
+<div class="journal">Bull. Am. Phys. Soc. 61th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 64, Number 11, BP10.107, Fort Lauderdale, Florida, October 21-25, 2019</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP19/Session/BP10.107" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2019">
+<div class="title">Integration of Full-Orbit and Gyro-Center Methods for Multi-Scale Modeling of Edge Plasmas Including Sheath Effects</div>
+<div class="authors">S. Valaitis, D. Curreli, J. Choi, S. Klasky, M. Churchill, C. S. Chang</div>
+<div class="journal">Bull. Am. Phys. Soc. 61th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 64, Number 11, BP10.99, Fort Lauderdale, Florida, October 21-25, 2019</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP19/Session/BP10.99" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2019">
+<div class="title">Generalization and Verification of RF (Radio-Frequency) Sheath Microscale Models</div>
+<div class="authors">J. R. Myra, D. Curreli, M. T. Elias, T. G. Jenkins</div>
+<div class="journal">Bull. Am. Phys. Soc. 61th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 64, Number 11, Fort Lauderdale, Florida, October 21-25, 2019</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP19/Session/UP10.80" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2019">
+<div class="title">Recent Results from the SciDAC (Scientific Discovery through Advanced Computing) Center for Simulation of Fusion Relevant RF (Radio-Frequency) Actuators</div>
+<div class="authors">P.  T. Bonoli, D. L. Green, E. D'Azevedo, N. Bertelli, A. Dimits, T. Kolev, D. N. Smithe, R. W. Harvey, J. R. Myra, M. S. Shephard, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 61th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, UP10.75, Fort Lauderdale, Florida, October 21-25, 2019</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP19/Session/UP10.75" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Numerical Characterization of Ar and He/N2 RF (Radio-Frequency) Atmospheric Pressure Plasma Discharges</div>
+<div class="authors">S. Marcinko, D. Curreli, S. Lee, S. Y. Moon</div>
+<div class="journal">Bull. Am. Phys. Soc. 71th Annual Gaseous Electronic Conference, Volume 63, Number 10, LW1.27, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/GEC18/Session/LW1.27" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Simulation of uranium plasma plume dynamics in atmospheric oxygen produced via femtosecond laser ablation</div>
+<div class="authors">M. Finko, D. Curreli, M. Azer, D. Weisz, J. Crowhurst, T. Rose, B. Koroglu, H. Radousky, J. Zaug, M. Armstrong</div>
+<div class="journal">Bull. Am. Phys. Soc. 71th Annual Gaseous Electronic Conference, Volume 63, Number 10, KW3.3, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/GEC18/Session/KW3.3" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Multi-physics simulation of the COST APPJ in the MOOSE (Multi-Physics Object Oriented Simulation Environment) framework</div>
+<div class="authors">C. DeChant, S. Keniley, D. Curreli, K. Stapelmann, S. Shannon</div>
+<div class="journal">Bull. Am. Phys. Soc. 71th Annual Gaseous Electronic Conference, Volume 63, Number 10, GT1.74, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/GEC18/Session/GT1.73" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">CRANE (Chemical ReAction NEtwork): a Novel MOOSE (Multi-Physics Object Oriented Simulation Environment)-based Open-Source tool for Plasma Chemistry Applications and Code Coupling</div>
+<div class="authors">S. Keniley, D. Curreli, C. DeChant, S. Shannon</div>
+<div class="journal">Bull. Am. Phys. Soc. 71th Annual Gaseous Electronic Conference, GT1.39, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/GEC18/Session/GT1.39" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Multi-scale Methods for Plasma Chemistry (invited talk)</div>
+<div class="authors">D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 71th Annual Gaseous Electronic Conference, Volume 63, Number 10, BM4.8, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/GEC18/Session/BM4.8" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Multi-Physics Object Oriented Simulation Environment (MOOSE) Session 1</div>
+<div class="authors">C. Icenhour, S. Keniley, C. DeChant, C. Permann, A. Lindsay, R. Martineau, D. Curreli, S. Shannon</div>
+<div class="journal">Bull. Am. Phys. Soc. 71th Annual Gaseous Electronic Conference, Volume 63, Number 10, AS2.1, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/GEC18/Session/AS2.1" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Integrated, multi-physics modeling of erosion, redeposition and gas retention in the ITER (International Thermonuclear Experimental Reactor) divertor</div>
+<div class="authors">A. Lasa, S. Blondel, G. Shaw, B. Wirth, T. Younkin, D. E. Bernholdt, J. Canik, M. R. Cianciosa, W. Elwasif, D. L. Green, P. C. Roth, D. Curreli, J. T. Drobny, M. Baldwin, R. Doerner, D. Nishijima</div>
+<div class="journal">Bull. Am. Phys. Soc. 60th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 63, Number 11, UO5.11, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP18/Session/UO5.11" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">B. G. P. Van Compernolle, R.J. Perkins, Predictions of ICRF (Ion-Cyclotron Range of Frequencies) induced sheaths and sputtering in the LAPD experiment</div>
+<div class="authors">J. C. Wright, S. Shiraiwa, D. Curreli, M. Elias, C. H. Man Lau, J. R. Myra</div>
+<div class="journal">Bull. Am. Phys. Soc. 60th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 63, Number 11, PM11.39, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP18/Session/PP11.38" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Prediction of Near Surface Gas Bubble Evolution in the ITER (International Thermonuclear Experimental Reactor) Divertor with Cluster Dynamics</div>
+<div class="authors">S. Blondel, D. E. Bernholdt, J. Canik, M. R. Cianciosa, D. Curreli, J. T. Drobny, W. Elwasif, D. Green, A. Lasa, P. C. Roth, T. Younkin, B. Wirth</div>
+<div class="journal">Bull. Am. Phys. Soc. 60th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 63, PM9.2, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP18/Session/PM9.2" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">C-S. Chang, Conversion from Gyrokinetic to Full-Orbit Particles for Plasma Sheath Boundary Conditions</div>
+<div class="authors">R. Pandit, D. Curreli, J. Y. Choi, R. Hager, M. Churchill</div>
+<div class="journal">Bull. Am. Phys. Soc. 60th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 63, Number 11, NP11.69, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP18/Session/NP11.66" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Applied Statistical Model of Surface Morphology for Plasma-Material Interactions</div>
+<div class="authors">J.T. Drobny, D. Curreli, A. Lasa, S. Blondel, J. Canik, D. L. Green, P. Roth, T. Younkin, B. Wirth</div>
+<div class="journal">Bull. Am. Phys. Soc. 60th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 63, Number 11, NM9.7, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP18/Session/NM9.7" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Quantification on the Effect of Uncertainty On Impurity Migration In PISCES (Plasma Interaction with Surface Component Experiment)-A Simulated With GITR (Global Impurity Transport Code)</div>
+<div class="authors">T. Younkin, K. Sargsyan, T. Casey, H. N.Najm, R. Doerner, D. Nishijima, D. L. Green, J. Canik, A. Lasa, P. Roth, D. Curreli, J. T. Drobny, P. Forehand, B. Wirth</div>
+<div class="journal">Bull. Am. Phys. Soc. 60th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 63, Number 11, NM9.6, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP18/Session/NM9.6" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Overview of the latest results from HIDRA (Hybrid Illinois Device for Research and Applications)</div>
+<div class="authors">D. Andruczyk, R. Rizkallah, M. Parsons, A. Shone, M. Szott, S. Stemmley, N. Bartlett, B. Holybee, Z. Koyn, A. S. Kapat, S. W. Marcinko, D. N. Ruzic, J. P. Allain, D. Curreli, R. Maingi, J. Hu, G. Zuo, Z. Sun</div>
+<div class="journal">Bull. Am. Phys. Soc. 60th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 63, Number 11, JP11.107, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP18/Session/JP11.106" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Modeling Enhanced Impurity Sputtering due to RF (Radio-Frequency) Sheaths in front of ICRH (Ion Cyclotron Resonance Heating) actuators</div>
+<div class="authors">M. Elias, D. Curreli, J. R. Myra, J. Wright</div>
+<div class="journal">Bull. Am. Phys. Soc. 60th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 63, Number 11, JP11.103, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP18/Session/JP11.102" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Simulations of divertor target material composition during tokamak plasma operation with continuous boron powder injection</div>
+<div class="authors">J. T. Drobny,  D. Curreli, M. V. Umansky, T. D. Rognlien, R. D. Smirnov, A. Bolrtolon, R. Maingi</div>
+<div class="journal">Bull. Am. Phys. Soc. 60th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 63, JP11.94, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP18/Session/JP11.93" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Mapping of the HIDRA (Hybrid Illinois Device for Research and Applications) Magnetic Flux Surfaces Through Experimental Measurements and Computational Codes</div>
+<div class="authors">R. Rizkallah, M. Parsons, A. Shone, Z. Jeckell, S. Marcinko, D. Curreli, D. Andruczyk</div>
+<div class="journal">Bull. Am. Phys. Soc. 60th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 63, Number 11, JP11.88, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP18/Session/JP11.88" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Validation simulations of the Particle-in-Cell code hPIC with the Laser-Induced Fluorescence measurements at the HELIX facility</div>
+<div class="authors">R. Khaziev, D. S. Thompson, D. Curreli, E. E. Scime</div>
+<div class="journal">Bull. Am. Phys. Soc. 60th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 63, Number 11, GP11.3, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP18/Session/GP11.3" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Ion velocity distribution dependence on &#955; /&#961;i and &#968; in a weakly magnetized plasma boundary</div>
+<div class="authors">D. S. Thompson, E. E. Scime, R. Khaziev, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 60th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 63, Num. 11, GP11.2, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP18/Session/GP11.2" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Coupled PIC-BCA (Particle-in-Cell-Binary Collision Approximation) simulations of the near-surface plasma at the ITER (International Thermonuclear Experimental Reactor) Outer Target</div>
+<div class="authors">D. Curreli, J. T. Drobny, A. Lasa, S. Blondel, J. Canik, D. L. Green, T. Younkin, B. Wirth</div>
+<div class="journal">Bull. Am. Phys. Soc. 60th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 63, Number 11, GM9.3, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP18/Session/GM9.3" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Status of integrated simulation of PFC surface evolution within the PSI-SciDAC project</div>
+<div class="authors">J. Canik, A. Lasa, S. Blondel, M. R.Cianciosa, D. Curreli, J. T. Drobny, W. Elwasif, D. L. Green, P. C. Roth, T. Younkin, B. Wirth, R. Doerner, D. Nishijima, M. Baldwin</div>
+<div class="journal">Bull. Am. Phys. Soc. 60th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 63, Number 11, GM9.2, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP18/Session/GM9.2" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Comparative Study of Explicit vs. Implicit Particle-in-Cell schemes for Plasma Sheath Simulations</div>
+<div class="authors">D. Curreli, J. Drobny, R. Khaziev</div>
+<div class="journal">Bull. Am. Phys. Soc. 60th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 63, Number 11, CP11.81, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP18/Session/CP11.81" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Density Estimation Techniques for Multiscale Coupling of Kinetic Models of the Plasma Material Interface</div>
+<div class="authors">S. Keniley, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 60th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 63, Number 11, CP11.79, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP18/Session/CP11.79" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Simulation of Tungsten Erosion and Migration in the ITER (International Thermonuclear Experimental Reactor) Divertor as Part of an Integrated Model for PSI</div>
+<div class="authors">T. Younkin, J. Canik, M. R Cianciosa, P. C Roth, A. Lasa, D. Curreli, J. T. Drobny, S. Blondel, B. Wirth, W. Elwasif, D. L. Green</div>
+<div class="journal">Bull. Am. Phys. Soc. 60th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 63, Number 11, CP11.78, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP18/Session/CP11.78" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Modeling of sources and transport of impurity ions and their interaction with material surfaces in powder-dropping experiments</div>
+<div class="authors">M. V. Umansky, A. Bortolon, D. Curreli, J. T. Drobny, R. Maingi, T. D. Rognlien, R. D. Smirnov</div>
+<div class="journal">Bull. Am. Phys. Soc. 60th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 63, Number 11, YP11.3, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP18/Session/YP11.2" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2018">
+<div class="title">Overview of Research in the SciDAC (Scientific Discovery through Advanced Computing) Center for Simulation of Fusion Relevant RF (Radio-Frequency) Actuators</div>
+<div class="authors">P. T. Bonoli, D. L. Green, E. D'Azevedo, N. Bertelli, A. Dimits, T. Kolev, D. N. Smithe, R. W. Harvey, J. R. Myra, M. S. Shephard, D. Curreli, and the RF (Radio-Frequency) SciDAC (Scientific Discovery through Advanced Computing) Team</div>
+<div class="journal">Bull. Am. Phys. Soc. 60th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 63, Number 11, BP11.71, Portland, Oregon, November 5-9, 2018</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP18/Session/BP11.71" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2017">
+<div class="title">3D measurements and simulations of ion and neutral velocity distribution functions in a magnetized plasma boundary</div>
+<div class="authors">D. Thompson, S. Keniley,  D. Curreli, M. Henriquez, D. Caron, A. Jemiolo, J. McLaughlin, M. Dufor, L. Neal, E. Scime, M. U. Siddiqui</div>
+<div class="journal">Bull. Am. Phys. Soc. 59th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 62, N. 12, UO4.8, Milwaukee, Wisconsin, October 23-27, 2017</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP17/Session/UO4.8" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2017">
+<div class="title">Latest results and developments from the Hybrid Illinois Device for Research and Applications</div>
+<div class="authors">R. Rizkallah, D. Andruczyk, Z. Jeckell, A. Shone, D. Johnson, J. P. Allain, D. Curreli, D. Ruzic</div>
+<div class="journal">Bull. Am. Phys. Soc. 59th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 62, N. 12, TO6.7, Milwaukee, Wisconsin, October 23-27, 2017</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP17/Session/TO6.7" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2017">
+<div class="title">Numerical Assessment of Plasma Parameters and Surface Flux Scaling in the HIDRA (Hybrid Illinois Device for Research and Applications) Stellarator</div>
+<div class="authors">S. Marcinko, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 59th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 62, N. 12, BP11.85, Milwaukee, Wisconsin, October 23-27, 2017</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP17/Session/BP11.85" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2017">
+<div class="title">Multi-physics modeling of plasma-material interactions</div>
+<div class="authors">A. Lasa, D. Green, J. Canik, T. Younkin, S. Blondel, B. Wirth, J. Drobny, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 59th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 62, N. 12, BP11.85, Milwaukee, Wisconsin, October 23-27, 2017</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP17/Session/BP11.85" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2017">
+<div class="title">Stabilization approach for an explicit hybrid particle-in-cell method for bridging multiple time-scales</div>
+<div class="authors">R. Khaziev, S. Keniley, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 59th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 62, N. 12, GP11.143, Milwaukee, Wisconsin, October 23-27, 2017</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP17/Session/GP11.143" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2017">
+<div class="title">Validation of Boltzmann-Poisson Continuum Code with LIF measurements of Plasma Sheath in an Oblique Magnetic Field</div>
+<div class="authors">S. Keniley, D. Curreli, D. Thompson, M. Henriquez, D. Caron, A. Jemiolo, J. McLaughlin, M. Dufor, L. Neal, E. Scime, M. U. Siddiqui</div>
+<div class="journal">Bull. Am. Phys. Soc. 59th Annual Meeting of the APS (American Physical Society)  Division of Plasma Physics, Vol. 62, N. 12, UO4.9, Milwaukee, Wisconsin, October 23-27, 2017</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP17/Session/UO4.9" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2017">
+<div class="title">Direct comparison of neutral velocity distribution measurements and simulations in the vicinity of an absorbing boundary oblique to a magnetic field</div>
+<div class="authors">M. Henriquez, D. Thompson, S. Keniley, D. Curreli, T. Steinberger, D. Caron, A. Jemiolo, J. McLaughlin, M. Dufor, L. Neal, E. Scime, U. Siddiqui</div>
+<div class="journal">Bull. Am. Phys. Soc. 59th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 62, N. 12, JP11.75, Milwaukee, Wisconsin, October 23-27, 2017</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP17/Session/JP11.75" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2017">
+<div class="title">A model of early formation of uranium molecular oxides in laser-ablated plasmas</div>
+<div class="authors">M. Finko, M. Azer, D. Weisz, J. Crowhurst, T. Rose, B. Koroglu, H. Radousky, J. Zaug, M. Armstrong</div>
+<div class="journal">Bull. Am. Phys. Soc. 59th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 62, N. 12, TO6.9, Milwaukee, Wisconsin, October 23-27, 2017</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP17/Session/TO6.9" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2017">
+<div class="title">Fast Statistical Model of Surface Roughness for Ion-Solid Interaction Simulations and Efficient Code Coupling</div>
+<div class="authors">J. Drobny, D. Curreli, D. Ruzic, A. Lasa, D. Green, J. Canik, T. Younkin, S. Blondel, B. Wirth</div>
+<div class="journal">Bull. Am. Phys. Soc. 59th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 62, N. 12, UO4.3, Milwaukee, Wisconsin, October 23-27, 2017</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP17/Session/UO4.3" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2017">
+<div class="title">Progress on the Development of the hPIC Particle-in-Cell Code</div>
+<div class="authors">C. Dart, A. Hayes, R. Khaziev, S. Marcinko,  D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 59th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 62, N. 12, CP11.25, Milwaukee, Wisconsin, October 23-27, 2017</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP17/Session/CP11.25" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2017">
+<div class="title">Calculations of Helium Bubble Evolution in the PISCES (Plasma Interaction with Surface Component Experiment)Experiments with Cluster Dynamics</div>
+<div class="authors">S. Blondel, T. Younkin, B. Wirth, A. Lasa, D. Green, J. Canik, J. Drobny, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 59th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 62, N. 12, UO4.4, Milwaukee, Wisconsin, October 23-27, 2017</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP17/Session/UO4.4" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2016">
+<div class="title">Conceptual Design of a high-performance plasma thruster using Electron Bernstein Wave (EBW) Heating and REBCO (Rare-Earth Barium Copper Oxide) Superconductors</div>
+<div class="authors">J. Bowman, D. Curreli</div>
+<div class="journal">ANS American Nuclear Society 2016 Student Conference, University of Wisconsin-Madison, March 31-April 3, 2016</div>
+</div>
+
+<div class="talk" data-year="2016">
+<div class="title">3D ion flow measurements and simulations near a boundary at oblique incidence to a magnetic field</div>
+<div class="authors">D. S. Thompson, S. Keniley, R. Khaziev, D. Curreli, T.N. Good, M. Henriquez, J. McIlvain, M.U. Siddiqui, E. E. Scime</div>
+<div class="journal">Bull. Am. Phys. Soc. 58th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol.61, N.18, UO4.14, San Jose, California, 2016</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2016.DPP.UO4.14" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2016">
+<div class="title">Why Nuclear Forensics Needs New Plasma Chemistry Data</div>
+<div class="authors">T. Rose, M. Armstrong, A. Chernov, J. Crowhurst, Z. Dai, K. Knight, B. Koroglu, H. Radousky, E. Stavrou, D. Weisz, J. Zaug, M. Azer, M. Finko, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 58th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol.61, N.18, UO4.14, San Jose, California, 2016</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP16/Session/PO7.13" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2016">
+<div class="title">Experimental Investigation of Molecular Species Formation in Metal Plasmas During Laser Ablation</div>
+<div class="authors">H. Radousky, J. Crowhurst, T. Rose, M. Armstrong, E. Stavrou, J. Zaug, D. Weisz, M. Azer, M. Finko, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 58th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol.61, N.18, PO7.13, San Jose, California, 2016</div>
+<div>
+    <a href="http://meetings.aps.org/Meeting/DPP16/Session/PO7.13" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2016">
+<div class="title">Characterization of Expected Operating Conditions of the HIDRA (Hybrid Illinois Device for Research and Applications) Stellarator with EMC3-EIRENE</div>
+<div class="authors">S. Marcinko, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 58th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol.61, N.18, PO4.11, San Jose, California, 2016</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2016.DPP.PO4.11" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2016">
+<div class="title">Performance Evaluation of the Electrostatic Particle-in-Cell Code hPIC on the Blue Waters Supercomputer</div>
+<div class="authors">R. Khaziev, R. Mokos, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 58th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol.61, N.18, NO6.4, San Jose, California, 2016</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2016.DPP.NO6.4" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2016">
+<div class="title">Boltzmann-BCA Analysis on the Role of Charge Exchange in Microscopic Erosion of Fusion-Relevant Plasma Facing Components</div>
+<div class="authors">S. Keniley, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 58th Annual Meeting of the APS Division of Plasma Physics, Vol.61, N.18, TP10.85, San Jose, California, 2016</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2016.DPP.TP10.85" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2016">
+<div class="title">Comparison of 3D ion velocity distribution measurements and models in the vicinity of an absorbing boundary oriented obliquely to a magnetic field</div>
+<div class="authors">M. F. Henriquez, D.S. Thompson, S. Keniley, R. Khaziev, T. N. Good, J. McIlvain, M.U. Siddiqui, D. Curreli, E. E. Scime</div>
+<div class="journal">Bull. Am. Phys. Soc. 58th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol.61, N.18, TP10.84, San Jose, California, 2016</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2016.DPP.TP10.84" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2016">
+<div class="title">Global Modeling of Uranium Molecular Species Formation Using Laser-Ablated Plasmas</div>
+<div class="authors">D. Curreli, M. Finko, M. Azer, M. Armstrong, J. Crowhurst, H. Radousky, T. Rose, E. Stavrou, D. Weisz, J. Zaug</div>
+<div class="journal">Bull. Am. Phys. Soc. 58th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol.61, N.18, PO7.8, San Jose, California, 2016</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2016.DPP.PO7.8" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2016">
+<div class="title">Collisionless Magnetic Reconnection as an Ion Acceleration Mechanism of Low-Beta Laboratory Plasmas</div>
+<div class="authors">E. Cazzola, D. Curreli, G. Lapenta</div>
+<div class="journal">Bull. Am. Phys. Soc. 58th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol.61, N.18, BP10.89, San Jose, California, 2016</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2016.DPP.BP10.89" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2016">
+<div class="title">First Results and Future Plans on HIDRA (Hybrid Illinois Device for Research and Applications)</div>
+<div class="authors">D. Andruczyk, Z. Song, N. Chopra, D. Johnson, A. Shone, D. N. Ruzic, J. P. Allain, D. Curreli, HIDRA (Hybrid Illinois Device for Research and Applications) Team</div>
+<div class="journal">Bull. Am. Phys. Soc. 58th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol.61, N.18, PP10.31, San Jose, California, 2016</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2016.DPP.PP10.31" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2015">
+<div class="title">Numerical Characterization of Wall Recycling Conditions of the HIDRA (Hybrid Illinois Device for Research and Applications)Stellarator using EMC3-EIRENE</div>
+<div class="authors">S. Marcinko, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 57th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 60, N.19, TP12.162, Savannah, Georgia, November 16-20, 2015</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2015.DPP.TP12.162" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2015">
+<div class="title">A Vlasov-BCA analysis on the wall erosion of a beryllium wall exposed to a high-density Helium plasma</div>
+<div class="authors">S. Keniley, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 57th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 60, N.19, NO6.2, Savannah, Georgia, November 16-20, 2015</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2015.DPP.NO6.2" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2015">
+<div class="title">Kinetic Characterization using hybrid Particle-in-Cells of the Impurity Release and Wall Erosion of Metal Samples Exposed to a DIII-D Divertor Plasma</div>
+<div class="authors">R. Khaziev, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 57th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 60, N.19, NO6.3, Savannah, Georgia, November 16-20, 2015</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2015.DPP.NO6.3" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2015">
+<div class="title">Status of the Hybrid Illinois Device for Research and Application (HIDRA)</div>
+<div class="authors">D. Andruczyk, P. Fiflis, J.P. Allain, D. Curreli, D. Ruzic</div>
+<div class="journal">Bull. Am. Phys. Soc. 57th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 60, N.19, NO6.1, Savannah, Georgia, November 16-20, 2015</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2015.DPP.NO6.1" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2015">
+<div class="title">A Vlasov-BCA method for numerical simulations of the plasma sheath structure in presence of a material releasing wall</div>
+<div class="authors">D. Curreli, R. Khaziev, S. Keniley, S. Marcinko</div>
+<div class="journal">Bull. Am. Phys. Soc. 67th Annual Gaseous Electronic Conference/9th International Conference on Reactive Plasmas/33rd Symposium on Plasma Processing, Vol. 60, N. 9, KW3.2, Honolulu, Hawaii, October 12-16, 2015</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2015.GEC.KW3.2" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2014">
+<div class="title">Ion Energy and Angular Distribution Functions at the Material Wall of a Magnetized Plasma Sheath</div>
+<div class="authors">D. Curreli, R. Khaziev</div>
+<div class="journal">Bull. Am. Phys. Soc. 67th Annual Gaseous Electronic Conference, Vol.59, N.16, CT1.2, Raleigh, North Carolina, November 2-7, 2014</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2014.GEC.CT1.2" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2014">
+<div class="title">Monte Carlo TRIM simulations, with evolving target and surface morphology, in support of plasma simulations and devices</div>
+<div class="authors">K. Lindquist, D. Curreli, K. Kalathiparambil, D. N. Ruzic</div>
+<div class="journal">Bull. Am. Phys. Soc. 56th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 59, N.15, BP8.67, New Orleans, October 27-31, 2014</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2014.DPP.BP8.67" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2014">
+<div class="title">Fluence Resolved Growth of Nanostructured Tungsten Fuzz</div>
+<div class="authors">P. Fiflis, D. Curreli, D. N. Ruzic</div>
+<div class="journal">Bull. Am. Phys. Soc. 56th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 59, N.15, TO3.7, New Orleans, October 27-31, 2014</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2014.DPP.TO3.7" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2014">
+<div class="title">Ion and Electron Energy-Angle Distribution Functions at the Material Wall in Magnetized Plasmas</div>
+<div class="authors">D. Curreli, R. Khaziev</div>
+<div class="journal">Bull. Am. Phys. Soc. 56th Annual Meeting of the APS(American Physical Society) Division of Plasma Physics, Vol. 59, N.15, PO7.8, New Orleans, October 27-31, 2014</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2014.DPP.PO7.8" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2014">
+<div class="title">HIDRA (Hybrid Illinois Device for Research and Applications): A new device for PFC and PMI development</div>
+<div class="authors">D. Andruczyk, D. N. Ruzic, J. P. Allain, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 56th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 59, N.15, TO3.13, New Orleans, October 27-31, 2014</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2014.DPP.TO3.13" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2013">
+<div class="title">Thin-Film and Crystalline Properties of Silicon Deposited Using a Novel, Low-Damage, Surface Wave Plasma Source</div>
+<div class="authors">P. Zonooz, J. Peck, M. Reilly, D. Curreli, R. Stubbers, B. Jurczyk, D. N. Ruzic</div>
+<div class="journal">AVS (American Vacuum Society) 60th International Symposium and Exhibition, Long Beach, California, October 27-November 1, 2013</div>
+</div>
+
+<div class="talk" data-year="2013">
+<div class="title">High Deposition Rate and Uniformity of Silicon Thin Films Deposited Via Efficient, Low-Damage Surface Wave Plasma Source</div>
+<div class="authors">J. Peck, P. Zonooz, D. Curreli, M. Reilly, R. Stubbers, B. Jurczyk, D. N. Ruzic</div>
+<div class="journal">AVS (American Vacuum Society) 60th International Symposium and Exhibition, Long Beach, California, October 27-November 1, 2013</div>
+</div>
+
+<div class="talk" data-year="2013">
+<div class="title">Selection of materials and surface finishes for reduced particle formation upon ion beam bombardment in EUV (Extreme Ultraviolet) mask blank production devices</div>
+<div class="authors">A. M. Lietz, D. Curreli, A. V. Hayes, A. Devashayam, D. N. Ruzic</div>
+<div class="journal">AVS (American Vacuum Society) 60th International Symposium and Exhibition, Long Beach, California, October 27-November 1, 2013</div>
+</div>
+
+<div class="talk" data-year="2013">
+<div class="title">Experimental Characterization of Thermo-electric Driven Liquid Lithium Flow in Narrow Trenches for Magnetic Confinement Fusion</div>
+<div class="authors">W. Xu, M. Christenson, P. Fiflis, D. Curreli, D. Andruczyk, D. N. Ruzic</div>
+<div class="journal">Bull. Am. Phys. Soc. 55th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 58, N. 16, UP8.134, Denver, Colorado, 2013</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2013.DPP.UP8.134" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2013">
+<div class="title">Thermoelectric-driven Flow of Liquid Lithium in Solid Metal Trenches: a New Plasma-Facing Component for Fusion Devices</div>
+<div class="authors">D. N. Ruzic, D. Andruczyk, D. Curreli, S. Jung, M. Christenson, K. Lindquist, P. Fiflis, W. Xu</div>
+<div class="journal">Bull. Am. Phys. Soc. 55th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 58, N. 16, JO4.15, Denver, Colorado, 2013</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2013.DPP.JO4.15" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2013">
+<div class="title">Fractal-TRIM and TRYDYN simulations of D-Be and Ar-W, and extrapolation to He-W</div>
+<div class="authors">K. Lindquist, D. Curreli, D. N. Ruzic</div>
+<div class="journal">Bull. Am. Phys. Soc. 55th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 58, N. 16, NM9.9, Denver, Colorado, 2013</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2013.DPP.NM9.9" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2013">
+<div class="title">Combining a plasma gun and theta-pinch to study plasma-facing components under fusion-relevant conditions</div>
+<div class="authors">S. Jung, M. Christenson, D. Curreli, D. Andruczyk, D. N. Ruzic</div>
+<div class="journal">Bull. Am. Phys. Soc. 55th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 58, Number 16, TP8.60, Denver, Colorado, 2013</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2013.DPP.TP8.60" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2013">
+<div class="title">Characterization of Liquid Lithium Wetting and Thermoelectric Properties for Nuclear Fusion Applications</div>
+<div class="authors">P. Fiflis, W. Xu, M. Christenson, D. Andruczyk, D. Curreli, D. N. Ruzic</div>
+<div class="journal">Bull. Am. Phys. Soc. 55th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 58, N. 16, TO6.7, Denver, Colorado, 2013</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2013.DPP.TO6.7" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2013">
+<div class="title">Multiscale Coupling of Monte Carlo Binary-Collision-Approximation Codes with Particle-in-Cells for Plasma-Material Interaction</div>
+<div class="authors">D. Curreli, K. Lindquist, D. N. Ruzic</div>
+<div class="journal">Bull. Am. Phys. Soc. 55th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 58, N. 16, NM9.1, Denver, Colorado, 2013</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2013.DPP.NM9.1" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2013">
+<div class="title">Measuring the ion energy distribution using a retarding field energy analyzer in a plasma material interaction test stand</div>
+<div class="authors">M. Christenson, S. Jung, D. Andruczyk, D. Curreli, D.N. Ruzic</div>
+<div class="journal">Bull. Am. Phys. Soc. 55th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Volume 58, Number 16, BP8.54, Denver, Colorado, 2013</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2013.DPP.BP8.54" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2013">
+<div class="title">Global modeling of micro plasma discharge in deionized water</div>
+<div class="authors">S. Mujumdar, D. Curreli, S. G. Kapoor, D. N. Ruzic</div>
+<div class="journal">Bull. Am. Phys. Soc. 66th Annual Gaseous Electronics Conference, Vol. 58, N. 8, CT1.59, Princeton, 2013</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2013.GEC.CT1.59" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2013">
+<div class="title">Characterization of a Helicon Plasma Source for Plasma Material Interactions</div>
+<div class="authors">P. Fiflis, D. Curreli, D. N. Ruzic</div>
+<div class="journal">Bull. Am. Phys. Soc. 66th Annual Gaseous Electronics Conference, Vol. 58, N. 8, MR1.4, Princeton, 2013</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2013.GEC.MR1.4" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2013">
+<div class="title">Cross-field diffusion in low-temperature plasma discharges of finite length</div>
+<div class="authors">D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 66th Annual Gaseous Electronics Conference, Vol. 58, N. 8, DT1.4, Princeton, New Jersey, 2013</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2013.GEC.DT1.4" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2013">
+<div class="title">Surface Interactions for Controlled Nuclear Fusion</div>
+<div class="authors">D. Curreli</div>
+<div class="journal">4th IEA (International Energy Agency) Workshop on Plasma Material Interaction Facilities (PMIF) for Fusion Research 2013 joint with the Plasma Facing Components (PFC) 2013 Meeting, Oak Ridge, TN, 2013</div>
+<div>
+    <a href="https://web.ornl.gov/sci/vlt/research/20130918_VLT_Brooks.pdf" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2012">
+<div class="title">A thermo-electric-driven flowing liquid lithium limiter/divertor for magnetic confined fusion</div>
+<div class="authors">D. Ruzic, W. Xu, D. Curreli, D. Andruczyk, T. Mui</div>
+<div class="journal">Bull. Am. Phys. Soc. 54th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 57, N. 12, CO7.3, Providence, Rhode Island, October 29-November 2, 2012</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP12/Session/CO7.3" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2012">
+<div class="title">Chemical Sputtering Studies of Lithiated Graphite</div>
+<div class="authors">P. Raman, A. Groll, T. Abrams, D. Curreli, D. Andruczyk, D. N. Ruzic</div>
+<div class="journal">Bull. Am. Phys. Soc. 54th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 57, N. 12, UP8.45, Providence, Rhode Island, October 29-November 2, 2012</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP12/Session/UP8.45" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2012">
+<div class="title">Numerical simulations of evolutionary surface morphology including fractal geometry and dynamic composition changes</div>
+<div class="authors">K. A. Lindquist, D. Curreli, D. N. Ruzic</div>
+<div class="journal">Bull. Am. Phys. Soc. 54th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 57, N. 12, UP8.47, Providence, Rhode Island, October 29-November 2, 2012</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP12/Session/UP8.47" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2012">
+<div class="title">Seebeck Coefficient of Lithium and Lithium-Tin Alloys</div>
+<div class="authors">L. Kirsch, P. Fiflis, D. Andruczyk, D. Curreli, D. N. Ruzic</div>
+<div class="journal">Bull. Am. Phys. Soc. 54th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 57, N. 12, UP8.46, Providence, Rhode Island, October 29-November 2, 2012</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP12/Session/UP8.46" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2012">
+<div class="title">A gas-puff-driven theta pinch for plasma-surface interaction studies</div>
+<div class="authors">S. Jung, L. Kesler, H Yun, D. Curreli, D. Andruczyk, and D. N. Ruzic</div>
+<div class="journal">Bull. Am. Phys. Soc. 54th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 57, N. 12, NP8.27, Providence, Rhode Island, October 29-November 2, 2012</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP12/Session/NP8.27" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2012">
+<div class="title">Wetting Properties of Liquid Lithium on Stainless Steel and Enhanced Stainless Steel Surfaces</div>
+<div class="authors">P. Fiflis, W. Xu, D. Andruczyk, D. N. Ruzic, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 54th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 57, N. 12, BO6.2, Providence, Rhode Island, October 29-November 2, 2012</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP12/Session/BO6.2" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2012">
+<div class="title">Three-dimensional modeling of the thermoelectric MHD (Magnetohydrodynamic) problem of the LIMIT liquid lithium divertor for fusion devices</div>
+<div class="authors">D. Curreli, W. Xu, K. Lindquist, D. Andruczyk, D. Ruzic</div>
+<div class="journal">Bull. Am. Phys. Soc. 54th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 57, N. 12, Providence, Rhode Island, October 29-November 2, 2012</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP12/Session/CO7.4" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2012">
+<div class="title">Thermoelectric-Driven Liquid-Metal Plasma-Facing Structures (TELS)</div>
+<div class="authors">D. Andruczyk, D. N. Ruzic, W. Xu, D. Curreli, P. Fiflis</div>
+<div class="journal">Bull. Am. Phys. Soc. 54th Annual Meeting of the APS (American Physical Society) Division of Plasma Physics, Vol. 57, N. 12, TP8.39, Providence, Rhode Island, October 29 -November 2, 2012</div>
+<div>
+    <a href="https://meetings.aps.org/Meeting/DPP12/Session/TP8.39" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2012">
+<div class="title">Computational Studies of Thermoelectric MHD (Magnetohydrodynamic) in Molten Lithium</div>
+<div class="authors">D. Curreli, W. Xu, D. Andruczyk, D. Ruzic</div>
+<div class="journal">Plasma Facing Components Meeting, Princeton Plasma Physics Laboratory, June 20, 2012</div>
+<div>
+    <a href="https://pfc2012.pppl.gov/presentations/4-Edge-PMI%20modeling/Curreli-Studies%20of%20TEMHD%20in%20Li.pdf" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2011">
+<div class="title">A new equilibrium theory for RF (Radio-Frequency) gas discharges</div>
+<div class="authors">F. F. Chen, D. Curreli</div>
+<div class="journal">Bull. Am. Phys. Soc. 64th Annual Gaseous Electronic Conference, Vol. 56, N. 15, JW3.1, Salt Lake City, Utah, November 14-18, 2011</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2011.GEC.JW3.1" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2011">
+<div class="title">Reformulation of gas discharge theory using data from ICPs (Inductively Coupled Plasmas) and helicons</div>
+<div class="authors">F. F. Chen, D. Curreli</div>
+<div class="journal">ICOPS (International Conference on Plasma Science) 2011, IEEE (Institute of Electrical and Electronics Engineers) International Conference on Plasma Science, Chicago, IL, June 26-30, 2011</div>
+<div>
+    <a href="https://doi.org/10.1109/PLASMA.2011.5993070" target="_blank">DOI</a>
+</div>
+</div>
+
+<div class="talk" data-year="2010">
+<div class="title">A novel equilibrium theory of helicon discharges</div>
+<div class="authors">D. Curreli, F. F. Chen</div>
+<div class="journal">Bull. Am. Phys. Soc. 63rd Annual Gaseous Electronics Conference and 7th International Conference on Reactive Plasmas, Vol. 55, N. 7, DTP.20, Paris, France, October 4-8, 2010</div>
+<div>
+    <a href="http://meetings.aps.org/link/BAPS.2010.GEC.DTP.20" target="_blank">DOI</a>
+</div>
+</div>
+
+</body>
+</html>
